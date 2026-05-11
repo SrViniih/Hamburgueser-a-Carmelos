@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamburgueseria Carmelo's | Modern Burger & Co.</title>
+    <title>Hamburgueseria Carmelos | Modern Burger & Co.</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
@@ -78,44 +78,79 @@
         .dot { width: 10px; height: 10px; background-color: #555; border-radius: 50%; cursor: pointer; transition: 0.3s; }
         .dot.active { background-color: var(--tag-amarillo); width: 25px; border-radius: 5px; }
 
-        /* NUEVO: Menú Grid con Imágenes */
+        /* Menú Grid con Imágenes */
         .menu-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; 
         }
         .menu-item { 
-            background: var(--crema-claro); 
-            border: 1px solid var(--gris-borde); 
-            border-radius: 8px; 
-            border-top: 4px solid var(--madera-clara); 
-            overflow: hidden; /* Mantém as bordas arredondadas junto com a imagem */
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s;
+            background: var(--crema-claro); border: 1px solid var(--gris-borde); border-radius: 8px; border-top: 4px solid var(--madera-clara); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s;
         }
-        .menu-item:hover { transform: translateY(-5px); }
-        .menu-item-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: var(--gris-borde);
-        }
-        .menu-item-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
+        .menu-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .menu-item-img { width: 100%; height: 200px; object-fit: cover; background-color: var(--gris-borde); }
+        .menu-item-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
         .menu-item h4 { font-size: 1.2rem; margin-bottom: 8px; }
         .menu-item p { font-size: 0.95rem; color: #666; margin-bottom: 15px; flex-grow: 1; }
         .menu-item .menu-preco { color: var(--madera-clara); font-weight: bold; font-size: 1.2rem; border-top: 1px solid var(--gris-borde); padding-top: 10px;}
+
+        /* Avaliações do Google */
+        .reviews-section {
+            background-color: var(--crema-claro);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-top: 6px solid #4285F4; 
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .google-score { text-align: center; flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; }
+        .google-score h3 { font-size: 2rem; margin-bottom: 5px; letter-spacing: -1px; }
+        .score-number { font-size: 4rem; font-weight: 800; color: var(--texto-oscuro); line-height: 1.2; font-family: 'Montserrat', sans-serif;}
+        .stars { margin: 5px 0 10px; }
+        .star-full { color: #fbbc04; font-size: 2rem; }
+        .star-half { 
+            background: linear-gradient(90deg, #fbbc04 50%, #e0e0e0 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+        }
+        .total-reviews { color: #666; font-size: 1.1rem; margin-bottom: 20px; }
+        
+        /* Botão do Google Maps */
+        .btn-google {
+            display: inline-block;
+            background-color: #fff;
+            color: #4285F4;
+            border: 2px solid #4285F4;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .btn-google:hover {
+            background-color: #4285F4;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3);
+        }
+
+        .review-highlights { flex: 2; display: flex; gap: 20px; min-width: 300px; }
+        .review-card { background: #fff; padding: 25px; border-radius: 8px; border: 1px solid var(--gris-borde); flex: 1; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .review-card-header { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
+        .review-card-header strong { font-family: 'Montserrat', sans-serif; font-size: 1.1rem;}
+        .review-card-stars { color: #fbbc04; font-size: 1.2rem; }
+        .review-card p { font-size: 0.95rem; color: #555; font-style: italic; line-height: 1.5; }
 
         /* Formularios y Footer */
         .reserva-form { background-color: var(--crema-claro); padding: 40px; border-radius: 12px; border-top: 6px solid var(--madera-clara); }
         .form-group { margin-bottom: 20px; }
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--gris-borde); border-radius: 8px; }
-        .btn-submit { width: 100%; padding: 15px; background: var(--texto-oscuro); color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .btn-submit { width: 100%; padding: 15px; background: var(--texto-oscuro); color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-submit:hover { background: var(--madera-clara); }
         footer { background-color: rgba(255, 255, 255, 0.95); padding: 50px 20px; text-align: center; border-top: 6px solid var(--madera-clara); }
 
         /* Responsivo */
@@ -123,6 +158,7 @@
             .carousel-slide { flex-direction: column; text-align: center; }
             .slide-img { width: 100%; height: 200px; }
             .slide-content { width: 100%; padding: 20px 0 0 0; }
+            .review-highlights { flex-direction: column; }
         }
     </style>
 </head>
@@ -131,12 +167,13 @@
     <nav>
         <a href="#home">Inicio</a>
         <a href="#destacados">Destacados</a>
-        <a href="#menu">Menú Digital</a>
+        <a href="#menu">Menú</a>
+        <a href="#avaliacoes">Opiniones</a>
         <a href="#reserva">Reservas</a>
     </nav>
 
     <header id="home">
-        <h1><span>Hamburgueseria</span> Carmelo's</h1>
+        <h1><span>Hamburgueseria</span> Carmelos</h1>
         <p style="font-size: 1.5rem; margin: 20px 0; color: #555;">Tu rincón moderno para las mejores hamburguesas.</p>
         <a href="#destacados" class="btn">Ver Novedades</a>
     </header>
@@ -165,7 +202,44 @@
             </div>
     </section>
 
-    <section id="reserva">
+    <section id="avaliacoes" style="padding-top: 40px; padding-bottom: 20px;">
+        <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Lo que dicen de nosotros</h2>
+        <div class="reviews-section">
+            
+            <div class="google-score">
+                <h3>
+                    <span style="color: #4285F4">G</span><span style="color: #EA4335">o</span><span style="color: #FBBC05">o</span><span style="color: #4285F4">g</span><span style="color: #34A853">l</span><span style="color: #EA4335">e</span>
+                </h3>
+                <div class="score-number">4,5</div>
+                <div class="stars">
+                    <span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-half">★</span>
+                </div>
+                <div class="total-reviews">Basado en <strong>2.521</strong> opiniones</div>
+                
+                <a href="https://www.google.es/maps/place/Hamburgueser%C3%ADa+Carmelo's/@41.6403918,-4.7223515,17z/data=!3m1!4b1!4m6!3m5!1s0xd4712c8e097655f:0x5a8b35aa93c652e7!8m2!3d41.6403878!4d-4.7197766!16s%2Fg%2F113h2pj0g?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google">Ver todas las opiniones en Google</a>
+            </div>
+
+            <div class="review-highlights">
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <strong>Javier M.</strong>
+                        <span class="review-card-stars">★★★★★</span>
+                    </div>
+                    <p>"Sin duda la mejor hamburguesería de la zona. El pan es súper suave y la carne espectacular. 100% recomendado si estás por aquí."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-card-header">
+                        <strong>Lucía Torres</strong>
+                        <span class="review-card-stars">★★★★★</span>
+                    </div>
+                    <p>"Local moderno, limpio y con una atención de primera. Pedí la Costilla Woven y me encantó. Relación calidad-precio inmejorable."</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="reserva" style="padding-top: 40px;">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Haz tu Reserva</h2>
         <div class="reserva-form">
             <form action="#" method="POST">
@@ -187,16 +261,14 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Hamburgueseria Carmelo's. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Hamburgueseria Carmelos. Todos los derechos reservados.</p>
     </footer>
 
     <script src="dados.js"></script>
 
     <script>
-        // 1. Renderizar Menú General com Imagens
         const menuContainer = document.getElementById('menu-container');
         menuData.geral.forEach(item => {
-            // Nota: Adicionamos um 'onerror' na imagem. Se você esquecer de criar a pasta img ou faltar uma foto, ele mostra um burger genérico automaticamente!
             menuContainer.innerHTML += `
                 <div class="menu-item">
                     <img src="${item.imagem}" alt="${item.titulo}" class="menu-item-img" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80'">
@@ -209,7 +281,6 @@
             `;
         });
 
-        // 2. Función Constructora de Carruseles (Inalterado)
         function initCarousel(dataArray, trackId, dotsId, wrapperId) {
             const track = document.getElementById(trackId);
             const dotsContainer = document.getElementById(dotsId);
