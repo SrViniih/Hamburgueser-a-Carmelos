@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Industrial Bistro | Hamburguesería & Pub</title>
-    <!-- Fuentes Pesadas y Rústicas -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Hamburgueseria Carmelos | Modern Burger & Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* Variables de Colores (Estilo Cálido Suave e Industrial) */
+        /* Variables de Colores (Estilo Moderno, Claro y Texturizado - Paleta de image_0.png) */
         :root {
-            --naranja-quemado: #cc5500;
-            --oxido: #8b4513;
-            --cemento-oscuro: #1e1e1e;
-            --cemento-claro: #2c2c2c;
-            --texto-claro: #f4f4f4;
-            --texto-oscuro: #111;
+            /* Colores Principales (de image_0.png) */
+            --crema-estuco: #f5f1e9;         /* Fondo principal, textura de pared */
+            --madera-clara: #d8bf9c;       /* Acento de estructura, listones y pilares */
+            --tejido-calido: #dfd4c3;     /* Color de sillas y detalles cálidos suaves */
+            --cemento-medio: #c0c0c0;      /* Suelo y detalles de pilares */
+            --texto-oscuro: #333333;       /* Texto principal (carbón oscuro) */
+            
+            /* Colores Secundarios y de Borde */
+            --crema-claro: #fafafa;        /* Fondos de tarjeta y elementos claros */
+            --gris-borde: #cccccc;        /* Líneas de cuadrícula, marcos de arte */
+            --gris-textura-suelo: #b0b0b0; /* Sutil patrón de suelo */
         }
 
         /* Reset Básico */
@@ -23,51 +27,55 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: var(--cemento-oscuro);
-            /* Textura simulada vía CSS para cemento oscuro */
-            background-image: radial-gradient(var(--cemento-claro) 15%, transparent 16%), radial-gradient(var(--cemento-claro) 15%, transparent 16%);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            color: var(--texto-claro);
+            background-color: var(--crema-estuco);
+            /* Textura sutil de estuco (pared de image_0.png) */
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+            color: var(--texto-oscuro);
             line-height: 1.6;
         }
 
-        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
 
-        /* Navegación Fija (Anclaje) */
+        /* Navegación Fija (Anclaje) con listones de madera de image_0.png */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            background-color: rgba(30, 30, 30, 0.95);
-            padding: 15px 0;
-            border-bottom: 3px solid var(--naranja-quemado);
+            /* Listones de madera clara en la base */
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 20px 0;
+            border-bottom: 4px solid var(--madera-clara);
             z-index: 1000;
             display: flex;
             justify-content: center;
             gap: 20px;
         }
         nav a {
-            color: var(--texto-claro);
+            color: var(--texto-oscuro);
             text-decoration: none;
             font-weight: 600;
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.1rem;
             letter-spacing: 1px;
             transition: color 0.3s;
         }
-        nav a:hover { color: var(--naranja-quemado); }
+        nav a:hover { color: var(--madera-clara); }
 
         /* Secciones y Espaciados */
-        section { padding: 100px 20px 60px; max-width: 1200px; margin: 0 auto; }
+        section { padding: 120px 20px 80px; max-width: 1200px; margin: 0 auto; }
         .section-title {
             text-align: center;
             font-size: 3rem;
-            color: var(--naranja-quemado);
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: var(--texto-oscuro);
+            margin-bottom: 50px;
+            /* Detalle de listones de madera detrás del título */
+            display: flex; align-items: center; justify-content: center;
         }
+        .section-title::before, .section-title::after {
+            content: ''; flex-grow: 1; height: 1px; background: var(--gris-borde); margin: 0 20px;
+        }
+        .section-title span { background: var(--crema-estuco); padding: 0 20px; color: var(--madera-clara); }
 
-        /* Hero / Portada */
+        /* Hero / Portada - Limpia y Moderna con texturas */
         #home {
             height: 100vh;
             display: flex;
@@ -75,90 +83,110 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            /* Fondo con sutil textura de suelo y crema */
+            background: linear-gradient(rgba(245, 241, 233, 0.9), rgba(245, 241, 233, 0.9)), url('https://images.unsplash.com/photo-1594179047519-f347310d3322?q=80&w=2070&auto=format&fit=crop') center/cover;
             padding-top: 0;
         }
-        #home h1 { font-size: 5rem; letter-spacing: 3px; color: var(--naranja-quemado); }
-        #home p { font-size: 1.5rem; margin: 20px 0; color: #ddd; }
+        #home h1 { font-size: 5rem; letter-spacing: 4px; color: var(--texto-oscuro); text-shadow: none; }
+        #home h1 span { color: var(--madera-clara); }
+        #home p { font-size: 1.6rem; margin: 30px 0; color: #555; }
         .btn {
-            background-color: var(--oxido);
-            color: var(--texto-claro);
-            padding: 15px 30px;
+            background-color: var(--tejido-calido);
+            color: var(--texto-oscuro);
+            padding: 15px 35px;
             text-decoration: none;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            transition: background 0.3s;
-            border: 1px solid var(--naranja-quemado);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 1px solid var(--gris-borde);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .btn:hover { background-color: var(--naranja-quemado); }
+        .btn:hover { background-color: var(--madera-clara); color: #fff; box-shadow: 0 6px 12px rgba(0,0,0,0.2); transform: translateY(-2px); }
 
-        /* Platos Recomendados */
-        .destaques-container { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        /* Platos Recomendados - Tarjetas modernas con detalles de madera */
+        .destaques-container { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
         .destaque-card {
-            background-color: var(--cemento-claro);
-            border-left: 5px solid var(--naranja-quemado);
-            padding: 20px; width: 350px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background-color: var(--crema-claro);
+            border: 1px solid var(--gris-borde);
+            padding: 30px; width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            /* Listones de madera clara en la parte superior */
+            border-top: 6px solid var(--madera-clara);
         }
-        .destaque-card h3 { color: var(--naranja-quemado); font-size: 1.8rem; }
-        .preco { font-weight: bold; font-size: 1.4rem; color: #fff; margin-top: 10px; }
+        .destaque-card h3 { color: var(--madera-clara); font-size: 2rem; margin-bottom: 15px; }
+        .destaque-card p { font-size: 1.1rem; color: #555; }
+        .preco { font-weight: bold; font-size: 1.6rem; color: var(--texto-oscuro); margin-top: 15px; border-top: 1px solid var(--gris-borde); padding-top: 10px; }
 
-        /* Grid del Menú Digital (10 Productos) */
+        /* Grid del Menú Digital (10 Productos) - Limpia y Texturizada */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
         .menu-item {
-            background: #222;
-            border: 1px solid #444;
-            padding: 15px;
-            border-radius: 4px;
-            transition: transform 0.3s;
-        }
-        .menu-item:hover { transform: translateY(-5px); border-color: var(--oxido); }
-        .menu-item h4 { font-family: 'Oswald', sans-serif; font-size: 1.3rem; margin-bottom: 5px; color: #ddd; }
-        .menu-item p { font-size: 0.9rem; color: #aaa; margin-bottom: 10px; }
-        .menu-item .menu-preco { color: var(--naranja-quemado); font-weight: bold; font-size: 1.2rem; }
-
-        /* Reservas */
-        .reserva-form {
-            background-color: var(--cemento-claro);
-            padding: 40px;
+            background: var(--crema-claro);
+            border: 1px solid var(--gris-borde);
+            padding: 20px;
             border-radius: 8px;
-            max-width: 600px;
-            margin: 0 auto;
-            border-top: 4px solid var(--oxido);
+            transition: transform 0.3s, border-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
-        .form-group input, .form-group select {
-            width: 100%; padding: 12px;
-            background-color: #111; color: #fff;
-            border: 1px solid #444; border-radius: 4px;
-        }
-        .form-group input:focus { outline: none; border-color: var(--naranja-quemado); }
-        .btn-submit { width: 100%; border: none; cursor: pointer; }
+        .menu-item:hover { transform: translateY(-5px); border-color: var(--madera-clara); }
+        /* Detalle de listones de madera clara en la parte superior de cada elemento del menú */
+        .menu-item::before { content:''; display:block; width: 100%; height: 3px; background: var(--madera-clara); margin-bottom: 15px; border-radius: 2px;}
+        
+        .menu-item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; margin-bottom: 8px; color: var(--texto-oscuro); }
+        .menu-item p { font-size: 1rem; color: #666; margin-bottom: 15px; }
+        .menu-item .menu-preco { color: var(--tejido-calido); font-weight: bold; font-size: 1.3rem; border-top: 1px solid var(--gris-borde); padding-top: 10px;}
 
-        /* Footer y Horarios */
+        /* Reservas - Formulario limpio y moderno */
+        .reserva-form {
+            background-color: var(--crema-claro);
+            padding: 50px;
+            border-radius: 12px;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid var(--gris-borde);
+            border-top: 6px solid var(--madera-clara);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--texto-oscuro); font-family: 'Montserrat', sans-serif;}
+        .form-group input, .form-group select {
+            width: 100%; padding: 15px;
+            background-color: #fff; color: var(--texto-oscuro);
+            border: 1px solid var(--gris-borde); border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--madera-clara); box-shadow: 0 0 8px rgba(216, 191, 156, 0.4); }
+        .btn-submit { width: 100%; border: none; cursor: pointer; border-radius: 10px; }
+
+        /* Footer y Horarios - Listones de madera al final */
         footer {
-            background-color: #111;
-            padding: 50px 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 60px 20px;
             text-align: center;
-            border-top: 2px solid var(--oxido);
+            border-top: 6px solid var(--madera-clara);
+            /* Sutil patrón de suelo */
+            background-image: linear-gradient(0deg, #b0b0b0 1px, transparent 1px), linear-gradient(90deg, #b0b0b0 1px, transparent 1px);
+            background-size: 50px 50px;
         }
         .horarios {
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            color: #bbb;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px; margin: 0 auto 40px;
         }
-        .horarios h3 { color: var(--naranja-quemado); margin-bottom: 15px; font-size: 2rem; }
+        .horarios h3 { color: var(--madera-clara); margin-bottom: 20px; font-size: 2.2rem; }
+        .horarios p { font-family: 'Open Sans', sans-serif; margin-bottom: 8px; }
+        .horarios strong { color: var(--texto-oscuro); font-family: 'Montserrat', sans-serif;}
     </style>
 </head>
 <body>
 
-    <!-- NAVEGACIÓN -->
     <nav>
         <a href="#home">Inicio</a>
         <a href="#recomendados">Destacados</a>
@@ -166,90 +194,86 @@
         <a href="#reserva">Reservas</a>
     </nav>
 
-    <!-- HOME / HERO -->
     <header id="home">
-        <h1>Industrial Bistro</h1>
-        <p>Hamburguesería Rústica & Pub</p>
+        <h1><span>Hamburgueseria</span> Carmelos</h1>
+        <p>Tu rincón moderno para las mejores hamburguesas.</p>
         <a href="#menu" class="btn">Ver Menú Digital</a>
     </header>
 
-    <!-- RECOMENDADOS -->
     <section id="recomendados">
-        <h2 class="section-title">Nuestras Recomendaciones</h2>
+        <h2 class="section-title"><span>Nuestras Recomendaciones</span></h2>
         <div class="destaques-container">
             <div class="destaque-card">
-                <h3>El Capataz</h3>
-                <p>Blend de ternera 200g, queso cheddar inglés fundido, bacon rústico caramelizado con melaza y mayonesa ahumada en pan brioche.</p>
-                <div class="preco">14,50 €</div>
+                <h3>El Carmelo Clásico</h3>
+                <p>Blend de ternera 100% 220g, queso havarti suave, lechuga fresca, tomate cherry caramelizado y mayonesa de ajo confitado en pan brioche artesanal.</p>
+                <div class="preco">15,50 €</div>
             </div>
             <div class="destaque-card">
-                <h3>Costilla Forjada</h3>
-                <p>Hamburguesa de costilla 180g, queso provolone, cebolla crujiente, rúcula fresca y salsa barbacoa artesanal de la casa.</p>
-                <div class="preco">12,50 €</div>
+                <h3>Costilla Woven</h3>
+                <p>Hamburguesa de costilla de cerdo deshilachada (pulled-rib) cocinada a baja temperatura, provolone derretido, cebolla frita crujiente y rúcula con salsa Carmelos suave.</p>
+                <div class="preco">13,50 €</div>
             </div>
         </div>
     </section>
 
-    <!-- MENÚ DIGITAL (10 Ítems en la Grid) -->
     <section id="menu">
-        <h2 class="section-title">Menú Digital</h2>
+        <h2 class="section-title"><span>Menú Digital</span></h2>
         <div class="menu-grid">
             <div class="menu-item">
-                <h4>1. Classic Burger</h4>
-                <p>Blend 160g, queso havarti, lechuga, tomate y mayonesa de hierbas.</p>
-                <div class="menu-preco">10,50 €</div>
-            </div>
-            <div class="menu-item">
-                <h4>2. Smash Doble</h4>
-                <p>2 smash burgers 90g, doble cheddar, pepinillos y mostaza.</p>
-                <div class="menu-preco">11,00 €</div>
-            </div>
-            <div class="menu-item">
-                <h4>3. Infierno Bacon</h4>
-                <p>Blend 180g, pepper jack, bacon, jalapeños y salsa sriracha.</p>
-                <div class="menu-preco">12,00 €</div>
-            </div>
-            <div class="menu-item">
-                <h4>4. Gorgonzola Bruto</h4>
-                <p>Blend 180g, crema de queso gorgonzola, cebolla caramelizada.</p>
-                <div class="menu-preco">12,50 €</div>
-            </div>
-            <div class="menu-item">
-                <h4>5. Pollo Crujiente</h4>
-                <p>Contramuslo empanado, lechuga iceberg, mayonesa de lima.</p>
-                <div class="menu-preco">10,00 €</div>
-            </div>
-            <div class="menu-item">
-                <h4>6. Veggie Industrial</h4>
-                <p>Hamburguesa de garbanzos, setas salteadas, rúcula.</p>
+                <h4>1. Carmelo Burger</h4>
+                <p>Ternera 180g, queso prato suave, cebolla caramelizada y salsa casera suave.</p>
                 <div class="menu-preco">11,50 €</div>
             </div>
             <div class="menu-item">
-                <h4>7. Patatas Rústicas</h4>
-                <p>Ración de patatas con piel, romero y ajo confitado.</p>
-                <div class="menu-preco">5,50 €</div>
+                <h4>2. Smash Moderno</h4>
+                <p>Doble smash burger de 90g, doble queso gouda, picles dulces y mostaza suave.</p>
+                <div class="menu-preco">12,00 €</div>
             </div>
             <div class="menu-item">
-                <h4>8. Aros de Cebolla</h4>
-                <p>Aros de cebolla rebozados en cerveza stout.</p>
-                <div class="menu-preco">6,00 €</div>
+                <h4>3. Pollo Tejido</h4>
+                <p>Contramuslo de pollo marinado en hierbas y crujiente, lechuga suave, crema de queso fresco.</p>
+                <div class="menu-preco">11,00 €</div>
             </div>
             <div class="menu-item">
-                <h4>9. Cerveza Artesanal (IPA)</h4>
-                <p>Pinta 500ml de cerveza IPA artesanal de la casa.</p>
-                <div class="menu-preco">4,50 €</div>
+                <h4>4. Ternera Carmelo 200g</h4>
+                <p>Ternera Carmelo (premium) 200g, queso azul suave, pera asada.</p>
+                <div class="menu-preco">16,00 €</div>
             </div>
             <div class="menu-item">
-                <h4>10. Brownie del Herrero</h4>
-                <p>Brownie de chocolate negro con helado de vainilla.</p>
+                <h4>5. Veggie Art</h4>
+                <p>Hambúrguesa de quinoa y lentejas, champiñones salteados, rúcula fresca.</p>
+                <div class="menu-preco">12,50 €</div>
+            </div>
+            <div class="menu-item">
+                <h4>6. Carmelo Junior</h4>
+                <p>Mini burger 100g de ternera suave, queso havarti, patatas pequeñas.</p>
+                <div class="menu-preco">9,00 €</div>
+            </div>
+            <div class="menu-item">
+                <h4>7. Patatas Woven</h4>
+                <p>Ración de patatas rústicas con salsa de queso suave y cebollino confitado.</p>
                 <div class="menu-preco">6,50 €</div>
+            </div>
+            <div class="menu-item">
+                <h4>8. Crujientes de Queso</h4>
+                <p>Varitas de queso suaves empanadas con panko ligero.</p>
+                <div class="menu-preco">7,00 €</div>
+            </div>
+            <div class="menu-item">
+                <h4>9. Cerveza Carmelos</h4>
+                <p>Pinta 500ml de cerveza artesanal rubia Carmelos (suave).</p>
+                <div class="menu-preco">5,00 €</div>
+            </div>
+            <div class="menu-item">
+                <h4>10. Postre Carmelo</h4>
+                <p>Pastel de chocolate suave con helado artesanal de vainilla.</p>
+                <div class="menu-preco">7,50 €</div>
             </div>
         </div>
     </section>
 
-    <!-- RESERVAS -->
     <section id="reserva">
-        <h2 class="section-title">Haz tu Reserva</h2>
+        <h2 class="section-title"><span>Haz tu Reserva</span></h2>
         <div class="reserva-form">
             <form action="#" method="POST">
                 <div class="form-group">
@@ -279,16 +303,16 @@
         </div>
     </section>
 
-    <!-- FOOTER & HORARIOS -->
     <footer id="contato">
         <div class="horarios">
             <h3>Horarios de Apertura</h3>
-            <p><strong>Lunes - Cerrado</strong> (Día de mantenimiento en las fraguas)</p>
-            <p><strong>Martes a Jueves:</strong> 19:00 - 23:30</p>
-            <p><strong>Viernes y Sábado:</strong> 19:00 - 02:00</p>
-            <p><strong>Domingo:</strong> 13:00 - 16:30 / 19:00 - 23:00</p>
+            <p><strong>Lunes:</strong> 13:00 - 16:00 / 19:30 - 23:30</p>
+            <p><strong>Martes a Jueves:</strong> 13:00 - 16:00 / 19:30 - 23:30</p>
+            <p><strong>Viernes:</strong> 13:00 - 16:00 / 19:30 - 00:30</p>
+            <p><strong>Sábado:</strong> 13:00 - 00:30 (Abierto todo el día)</p>
+            <p><strong>Domingo:</strong> 13:00 - 23:00 (Abierto todo el día)</p>
         </div>
-        <p>&copy; 2026 Industrial Bistro | Hamburguesería & Pub. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Hamburgueseria Carmelos | Modern Burger & Co. Todos los derechos reservados.</p>
     </footer>
 
 </body>
