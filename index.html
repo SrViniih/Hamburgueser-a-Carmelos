@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamburgueseria Carmelos | Modern Burger & Co.</title>
+    <title>Hamburgueseria Carmelo's | Modern Burger & Co.</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
@@ -14,8 +14,6 @@
             --texto-oscuro: #333333;
             --crema-claro: #fafafa;
             --gris-borde: #cccccc;
-            
-            /* Nuevos colores para los carruseles (estilo oscuro) */
             --card-dark: #121212;
             --card-dark-lighter: #1e1e1e;
             --precio-verde: #20c997;
@@ -60,54 +58,57 @@
         .btn { background-color: var(--tejido-calido); color: var(--texto-oscuro); padding: 15px 35px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; border-radius: 8px; border: 1px solid var(--gris-borde); transition: 0.3s; }
         .btn:hover { background-color: var(--madera-clara); color: #fff; }
 
-        /* Estilos del Carrusel (Diseño Oscuro) */
+        /* Estilos del Carrusel */
         .carousel-wrapper {
-            position: relative;
-            background-color: var(--card-dark);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            margin-bottom: 50px;
-            overflow: hidden;
+            position: relative; background-color: var(--card-dark); border-radius: 12px; padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-bottom: 50px; overflow: hidden;
         }
         .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
-        .carousel-slide {
-            min-width: 100%; display: flex; gap: 30px; align-items: center;
-        }
-        .slide-img {
-            width: 45%; height: 300px; border-radius: 8px; object-fit: cover;
-            background-color: var(--card-dark-lighter);
-        }
+        .carousel-slide { min-width: 100%; display: flex; gap: 30px; align-items: center; }
+        .slide-img { width: 45%; height: 300px; border-radius: 8px; object-fit: cover; background-color: var(--card-dark-lighter); }
         .slide-content { width: 55%; color: #fff; padding-right: 40px;}
-        
-        .badge {
-            display: inline-block; background-color: var(--tag-amarillo); color: #000;
-            font-size: 0.8rem; font-weight: 700; padding: 5px 10px; border-radius: 4px; margin-bottom: 15px; text-transform: uppercase;
-        }
+        .badge { display: inline-block; background-color: var(--tag-amarillo); color: #000; font-size: 0.8rem; font-weight: 700; padding: 5px 10px; border-radius: 4px; margin-bottom: 15px; text-transform: uppercase; }
         .slide-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 15px; font-family: 'Montserrat', serif; }
         .slide-desc { color: #aaa; font-size: 1.1rem; margin-bottom: 25px; }
         .slide-price { color: var(--precio-verde); font-size: 2rem; font-weight: 800; }
-
-        /* Botones del Carrusel */
-        .carousel-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background-color: #000; color: #fff; border: none; width: 40px; height: 40px;
-            border-radius: 50%; cursor: pointer; z-index: 10; font-size: 1.2rem; display: flex; justify-content: center; align-items: center; transition: 0.2s;
-        }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: #000; color: #fff; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 1.2rem; display: flex; justify-content: center; align-items: center; transition: 0.2s; }
         .carousel-btn:hover { background-color: var(--madera-clara); color: #000; }
-        .btn-prev { left: 15px; }
-        .btn-next { right: 15px; }
-
-        /* Puntos (Dots) */
+        .btn-prev { left: 15px; } .btn-next { right: 15px; }
         .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
         .dot { width: 10px; height: 10px; background-color: #555; border-radius: 50%; cursor: pointer; transition: 0.3s; }
         .dot.active { background-color: var(--tag-amarillo); width: 25px; border-radius: 5px; }
 
-        /* Menú Grid */
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .menu-item { background: var(--crema-claro); border: 1px solid var(--gris-borde); padding: 20px; border-radius: 8px; border-top: 4px solid var(--madera-clara); }
+        /* NUEVO: Menú Grid con Imágenes */
+        .menu-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+        }
+        .menu-item { 
+            background: var(--crema-claro); 
+            border: 1px solid var(--gris-borde); 
+            border-radius: 8px; 
+            border-top: 4px solid var(--madera-clara); 
+            overflow: hidden; /* Mantém as bordas arredondadas junto com a imagem */
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+        .menu-item:hover { transform: translateY(-5px); }
+        .menu-item-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--gris-borde);
+        }
+        .menu-item-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
         .menu-item h4 { font-size: 1.2rem; margin-bottom: 8px; }
-        .menu-item p { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
+        .menu-item p { font-size: 0.95rem; color: #666; margin-bottom: 15px; flex-grow: 1; }
         .menu-item .menu-preco { color: var(--madera-clara); font-weight: bold; font-size: 1.2rem; border-top: 1px solid var(--gris-borde); padding-top: 10px;}
 
         /* Formularios y Footer */
@@ -141,7 +142,6 @@
     </header>
 
     <section id="destacados">
-        
         <h2 class="section-title">Mejores Platos</h2>
         <div class="carousel-wrapper" id="carousel-mejores">
             <button class="carousel-btn btn-prev">&#10094;</button>
@@ -157,7 +157,6 @@
             <div class="carousel-track" id="track-nuevos"></div>
             <div class="carousel-dots" id="dots-nuevos"></div>
         </div>
-
     </section>
 
     <section id="menu">
@@ -188,31 +187,34 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Hamburgueseria Carmelos. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Hamburgueseria Carmelo's. Todos los derechos reservados.</p>
     </footer>
 
     <script src="dados.js"></script>
 
     <script>
-        // 1. Renderizar Menú General
+        // 1. Renderizar Menú General com Imagens
         const menuContainer = document.getElementById('menu-container');
         menuData.geral.forEach(item => {
+            // Nota: Adicionamos um 'onerror' na imagem. Se você esquecer de criar a pasta img ou faltar uma foto, ele mostra um burger genérico automaticamente!
             menuContainer.innerHTML += `
                 <div class="menu-item">
-                    <h4>${item.titulo}</h4>
-                    <p>${item.desc}</p>
-                    <div class="menu-preco">${item.preco}</div>
+                    <img src="${item.imagem}" alt="${item.titulo}" class="menu-item-img" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80'">
+                    <div class="menu-item-content">
+                        <h4>${item.titulo}</h4>
+                        <p>${item.desc}</p>
+                        <div class="menu-preco">${item.preco}</div>
+                    </div>
                 </div>
             `;
         });
 
-        // 2. Función Constructora de Carruseles
+        // 2. Función Constructora de Carruseles (Inalterado)
         function initCarousel(dataArray, trackId, dotsId, wrapperId) {
             const track = document.getElementById(trackId);
             const dotsContainer = document.getElementById(dotsId);
             const wrapper = document.getElementById(wrapperId);
             
-            // Injetar HTML dos slides
             dataArray.forEach((item, index) => {
                 track.innerHTML += `
                     <div class="carousel-slide">
@@ -225,16 +227,13 @@
                         </div>
                     </div>
                 `;
-                // Criar bolinhas (dots)
                 dotsContainer.innerHTML += `<div class="dot ${index === 0 ? 'active' : ''}" data-index="${index}"></div>`;
             });
 
-            // Lógica de Movimento
             let currentIndex = 0;
             const slides = track.querySelectorAll('.carousel-slide');
             const dots = dotsContainer.querySelectorAll('.dot');
             const totalSlides = slides.length;
-
             const btnPrev = wrapper.querySelector('.btn-prev');
             const btnNext = wrapper.querySelector('.btn-next');
 
@@ -262,7 +261,6 @@
             });
         }
 
-        // Inicializar os dois carrosséis usando os dados do dados.js
         initCarousel(menuData.mejores, 'track-mejores', 'dots-mejores', 'carousel-mejores');
         initCarousel(menuData.nuevos, 'track-nuevos', 'dots-nuevos', 'carousel-nuevos');
     </script>

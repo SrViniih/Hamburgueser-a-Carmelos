@@ -55,17 +55,17 @@ const menuData = {
         }
     ],
 
-    // Grid do Menu Completo (10 itens)
+    // Grid do Menu Completo (10 itens com imagens)
     geral: [
-        { titulo: "1. Carmelo Burger", desc: "Ternera 180g, queso prato suave, cebolla caramelizada.", preco: "11,50 €" },
-        { titulo: "2. Smash Moderno", desc: "Doble smash burger 90g, doble gouda, mostaza.", preco: "12,00 €" },
-        { titulo: "3. Pollo Tejido", desc: "Contramuslo de pollo crujiente, crema de queso.", preco: "11,00 €" },
-        { titulo: "4. Ternera Carmelo 200g", desc: "Ternera premium, queso azul suave, pera asada.", preco: "16,00 €" },
-        { titulo: "5. Veggie Art", desc: "Hambúrguesa de quinoa, champiñones, rúcula.", preco: "12,50 €" },
-        { titulo: "6. Carmelo Junior", desc: "Mini burger 100g, queso havarti, patatas.", preco: "9,00 €" },
-        { titulo: "7. Patatas Woven", desc: "Patatas rústicas con salsa de queso suave.", preco: "6,50 €" },
-        { titulo: "8. Crujientes de Queso", desc: "Varitas de queso empanadas con panko.", preco: "7,00 €" },
-        { titulo: "9. Cerveza Carmelos", desc: "Pinta 500ml de cerveza artesanal rubia.", preco: "5,00 €" },
-        { titulo: "10. Postre Carmelo", desc: "Pastel de chocolate suave con helado.", preco: "7,50 €" }
+        { titulo: "1. Carmelo Burger", desc: "Ternera 180g, queso prato suave, cebolla caramelizada.", preco: "11,50 €", imagem: "img/burger-1.jpg" },
+        { titulo: "2. Smash Moderno", desc: "Doble smash burger 90g, doble gouda, mostaza.", preco: "12,00 €", imagem: "img/burger-2.jpg" },
+        { titulo: "3. Pollo Tejido", desc: "Contramuslo de pollo crujiente, crema de queso.", preco: "11,00 €", imagem: "img/pollo-1.jpg" },
+        { titulo: "4. Ternera Carmelo 200g", desc: "Ternera premium, queso azul suave, pera asada.", preco: "16,00 €", imagem: "img/burger-3.jpg" },
+        { titulo: "5. Veggie Art", desc: "Hambúrguesa de quinoa, champiñones, rúcula.", preco: "12,50 €", imagem: "img/veggie-1.jpg" },
+        { titulo: "6. Carmelo Junior", desc: "Mini burger 100g, queso havarti, patatas.", preco: "9,00 €", imagem: "img/burger-4.jpg" },
+        { titulo: "7. Patatas Woven", desc: "Patatas rústicas con salsa de queso suave.", preco: "6,50 €", imagem: "img/patatas.jpg" },
+        { titulo: "8. Crujientes de Queso", desc: "Varitas de queso empanadas con panko.", preco: "7,00 €", imagem: "img/queso.jpg" },
+        { titulo: "9. Cerveza Carmelos", desc: "Pinta 500ml de cerveza artesanal rubia.", preco: "5,00 €", imagem: "img/cerveza.jpg" },
+        { titulo: "10. Postre Carmelo", desc: "Pastel de chocolate suave con helado.", preco: "7,50 €", imagem: "img/postre.jpg" }
     ]
 };
