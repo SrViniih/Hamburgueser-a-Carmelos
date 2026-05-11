@@ -118,25 +118,10 @@
             font-size: 2rem;
         }
         .total-reviews { color: #666; font-size: 1.1rem; margin-bottom: 20px; }
-        
-        /* Botão do Google Maps */
         .btn-google {
-            display: inline-block;
-            background-color: #fff;
-            color: #4285F4;
-            border: 2px solid #4285F4;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            display: inline-block; background-color: #fff; color: #4285F4; border: 2px solid #4285F4; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease;
         }
-        .btn-google:hover {
-            background-color: #4285F4;
-            color: #fff;
-            box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3);
-        }
+        .btn-google:hover { background-color: #4285F4; color: #fff; box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3); }
 
         .review-highlights { flex: 2; display: flex; gap: 20px; min-width: 300px; }
         .review-card { background: #fff; padding: 25px; border-radius: 8px; border: 1px solid var(--gris-borde); flex: 1; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
@@ -145,12 +130,36 @@
         .review-card-stars { color: #fbbc04; font-size: 1.2rem; }
         .review-card p { font-size: 0.95rem; color: #555; font-style: italic; line-height: 1.5; }
 
-        /* Formularios y Footer */
+        /* Formularios de Reserva */
         .reserva-form { background-color: var(--crema-claro); padding: 40px; border-radius: 12px; border-top: 6px solid var(--madera-clara); }
         .form-group { margin-bottom: 20px; }
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--gris-borde); border-radius: 8px; }
         .btn-submit { width: 100%; padding: 15px; background: var(--texto-oscuro); color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .btn-submit:hover { background: var(--madera-clara); }
+
+        /* NUEVO: Horarios de Apertura */
+        .horarios-card {
+            background-color: var(--crema-claro);
+            padding: 40px;
+            border-radius: 12px;
+            border-top: 6px solid var(--madera-clara);
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .horario-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px dashed var(--gris-borde);
+            font-size: 1.1rem;
+        }
+        .horario-row:last-child { border-bottom: none; }
+        .horario-dia { font-weight: bold; font-family: 'Montserrat', sans-serif; color: var(--texto-oscuro); }
+        .horario-hora { color: #555; text-align: right; }
+        .cerrado { color: #d9534f; font-weight: bold; } /* Destaque vermelho para dias fechados */
+
+        /* Footer */
         footer { background-color: rgba(255, 255, 255, 0.95); padding: 50px 20px; text-align: center; border-top: 6px solid var(--madera-clara); }
 
         /* Responsivo */
@@ -159,6 +168,8 @@
             .slide-img { width: 100%; height: 200px; }
             .slide-content { width: 100%; padding: 20px 0 0 0; }
             .review-highlights { flex-direction: column; }
+            .horario-row { flex-direction: column; text-align: center; gap: 5px; }
+            .horario-hora { text-align: center; }
         }
     </style>
 </head>
@@ -170,11 +181,10 @@
         <a href="#menu">Menú</a>
         <a href="#avaliacoes">Opiniones</a>
         <a href="#reserva">Reservas</a>
-    </nav>
+        <a href="#horarios">Horarios</a> </nav>
 
     <header id="home">
         <h1><span>Hamburgueseria</span> Carmelos</h1>
-        <h2><span>feito por</span>@Laespana_gallary</h2>
         <p style="font-size: 1.5rem; margin: 20px 0; color: #555;">Tu rincón moderno para las mejores hamburguesas.</p>
         <a href="#destacados" class="btn">Ver Novedades</a>
     </header>
@@ -206,7 +216,6 @@
     <section id="avaliacoes" style="padding-top: 40px; padding-bottom: 20px;">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Lo que dicen de nosotros</h2>
         <div class="reviews-section">
-            
             <div class="google-score">
                 <h3>
                     <span style="color: #4285F4">G</span><span style="color: #EA4335">o</span><span style="color: #FBBC05">o</span><span style="color: #4285F4">g</span><span style="color: #34A853">l</span><span style="color: #EA4335">e</span>
@@ -216,10 +225,8 @@
                     <span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-half">★</span>
                 </div>
                 <div class="total-reviews">Basado en <strong>2.521</strong> opiniones</div>
-                
                 <a href="https://www.google.es/maps/place/Hamburgueser%C3%ADa+Carmelo's/@41.6403918,-4.7223515,17z/data=!3m1!4b1!4m6!3m5!1s0xd4712c8e097655f:0x5a8b35aa93c652e7!8m2!3d41.6403878!4d-4.7197766!16s%2Fg%2F113h2pj0g?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google">Ver todas las opiniones en Google</a>
             </div>
-
             <div class="review-highlights">
                 <div class="review-card">
                     <div class="review-card-header">
@@ -236,11 +243,10 @@
                     <p>"Local moderno, limpio y con una atención de primera. Pedí la Costilla Woven y me encantó. Relación calidad-precio inmejorable."</p>
                 </div>
             </div>
-            
         </div>
     </section>
 
-    <section id="reserva" style="padding-top: 40px;">
+    <section id="reserva" style="padding-top: 40px; padding-bottom: 20px;">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Haz tu Reserva</h2>
         <div class="reserva-form">
             <form action="#" method="POST">
@@ -258,6 +264,40 @@
                 <div class="form-group"><input type="time" required></div>
                 <button type="submit" class="btn-submit">Confirmar Reserva</button>
             </form>
+        </div>
+    </section>
+
+    <section id="horarios" style="padding-top: 40px;">
+        <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Horarios de Apertura</h2>
+        <div class="horarios-card">
+            <div class="horario-row">
+                <span class="horario-dia">Lunes</span>
+                <span class="horario-hora">10:30–16:30 / 19:00–23:30</span>
+            </div>
+            <div class="horario-row">
+                <span class="horario-dia">Martes</span>
+                <span class="horario-hora cerrado">Cerrado</span>
+            </div>
+            <div class="horario-row">
+                <span class="horario-dia">Miércoles</span>
+                <span class="horario-hora">10:30–16:30 / 19:00–23:30</span>
+            </div>
+            <div class="horario-row">
+                <span class="horario-dia">Jueves</span>
+                <span class="horario-hora">10:30–16:30 / 19:00–23:30</span>
+            </div>
+            <div class="horario-row">
+                <span class="horario-dia">Viernes</span>
+                <span class="horario-hora">10:30–16:30 / 19:00–00:00</span>
+            </div>
+            <div class="horario-row">
+                <span class="horario-dia">Sábado</span>
+                <span class="horario-hora">12:00–16:30 / 19:00–00:00</span>
+            </div>
+            <div class="horario-row">
+                <span class="horario-dia">Domingo</span>
+                <span class="horario-hora">12:00–16:30 / 19:00–23:30</span>
+            </div>
         </div>
     </section>
 
