@@ -250,20 +250,21 @@
     <section id="reserva" style="padding-top: 40px; padding-bottom: 20px;">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Haz tu Reserva</h2>
         <div class="reserva-form">
-            <form action="#" method="POST">
-                <div class="form-group"><input type="text" placeholder="Nombre Completo" required></div>
+           <form id="form-reserva">
+                <div class="form-group"><input type="text" id="res-nome" placeholder="Nombre Completo" required></div>
                 <div class="form-group">
-                    <select required>
+                    <select id="res-pessoas" required>
                         <option value="">Número de Personas...</option>
                         <option value="1">1 Persona</option>
                         <option value="2">2 Personas</option>
+                        <option value="3">3 Personas</option>
                         <option value="4">4 Personas</option>
                         <option value="5+">5+ Personas</option>
                     </select>
                 </div>
-                <div class="form-group"><input type="date" required></div>
-                <div class="form-group"><input type="time" required></div>
-                <button type="submit" class="btn-submit">Confirmar Reserva</button>
+                <div class="form-group"><input type="date" id="res-data" required></div>
+                <div class="form-group"><input type="time" id="res-hora" required></div>
+                <button type="submit" class="btn-submit">Confirmar Reserva vía WhatsApp</button>
             </form>
         </div>
     </section>
@@ -364,7 +365,7 @@
             btnPrev.addEventListener('click', () => {
                 currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
                 updateCarousel();
-            });
+            });.
 
             dots.forEach(dot => {
                 dot.addEventListener('click', (e) => {
@@ -376,6 +377,29 @@
 
         initCarousel(menuData.mejores, 'track-mejores', 'dots-mejores', 'carousel-mejores');
         initCarousel(menuData.nuevos, 'track-nuevos', 'dots-nuevos', 'carousel-nuevos');
+        // Lógica do WhatsApp
+        document.getElementById('form-reserva').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o site de recarregar a página
+            
+            // Pega os valores que o cliente digitou
+            const nome = document.getElementById('res-nome').value;
+            const pessoas = document.getElementById('res-pessoas').value;
+            const data = document.getElementById('res-data').value;
+            const hora = document.getElementById('res-hora').value;
+
+            // Formata a data (de AAAA-MM-DD para DD/MM/AAAA)
+            const dataFormatada = data.split('-').reverse().join('/');
+
+            // Monta a mensagem bonitinha com emojis
+            const mensagem = `¡Hola Carmelo's! 🍔 Quisiera hacer una reserva:\n\n👤 *Nombre:* ${nome}\n👥 *Personas:* ${pessoas}\n📅 *Fecha:* ${dataFormatada}\n⏰ *Hora:* ${hora}\n\n¿Tienen disponibilidad?`;
+
+            // Coloque o número do restaurante aqui (Código do país 34 + Número do celular)
+            const numeroRestaurante = "34643496470"; 
+
+            // Codifica a mensagem para o formato de link da internet e abre o WhatsApp
+            const urlWhatsApp = `https://wa.me/${numeroRestaurante}?text=${encodeURIComponent(mensagem)}`;
+            window.open(urlWhatsApp, '_blank');
+        });
     </script>
 </body>
 </html>
