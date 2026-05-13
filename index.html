@@ -171,6 +171,28 @@
             .horario-row { flex-direction: column; text-align: center; gap: 5px; }
             .horario-hora { text-align: center; }
         }
+        /* Botões de Delivery */
+        .delivery-buttons {
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;
+        }
+        .btn-delivery {
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 800;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-delivery:hover { transform: translateY(-4px); }
+        
+        /* Cores Oficiais dos Apps */
+        .btn-glovo { background-color: #FFC244; color: #000; box-shadow: 0 5px 15px rgba(255, 194, 68, 0.3); }
+        .btn-uber { background-color: #06C167; color: #fff; box-shadow: 0 5px 15px rgba(6, 193, 103, 0.3); }
+        .btn-justeat { background-color: #FF8000; color: #fff; box-shadow: 0 5px 15px rgba(255, 128, 0, 0.3); }
     </style>
 </head>
 <body>
@@ -213,7 +235,20 @@
         <div class="menu-grid" id="menu-container">
             </div>
     </section>
-
+<!-- DELIVERY / PIDE A DOMICILIO -->
+    <section id="delivery" style="padding-top: 40px; padding-bottom: 20px;">
+        <div style="background-color: var(--card-dark); border-radius: 12px; padding: 50px 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            <h2 class="section-title" style="color: #fff; border: none; padding: 0; text-align: center; margin-bottom: 15px;">Pide a Domicilio</h2>
+            <p style="font-size: 1.2rem; color: #aaa; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">¿Prefieres quedarte en casa? Encuéntranos en tus plataformas de delivery favoritas y te lo llevamos caliente.</p>
+            
+            <div class="delivery-buttons">
+                <!-- Basta trocar o "#" pelo link real do restaurante no aplicativo -->
+                <a href="#" target="_blank" class="btn-delivery btn-glovo">Pedir por Glovo</a>
+                <a href="#" target="_blank" class="btn-delivery btn-uber">Pedir por Uber Eats</a>
+                <a href="#" target="_blank" class="btn-delivery btn-justeat">Pedir por Just Eat</a>
+            </div>
+        </div>
+    </section>
     <section id="avaliacoes" style="padding-top: 40px; padding-bottom: 20px;">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Lo que dicen de nosotros</h2>
         <div class="reviews-section">
