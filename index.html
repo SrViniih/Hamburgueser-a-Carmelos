@@ -36,11 +36,30 @@
         nav {
             position: fixed; top: 0; width: 100%;
             background-color: rgba(255, 255, 255, 0.98);
-            padding: 20px 0; border-bottom: 4px solid var(--madera-clara);
-            z-index: 1000; display: flex; justify-content: center; gap: 20px;
+            padding: 15px 0; border-bottom: 4px solid var(--madera-clara);
+            z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
         nav a { color: var(--texto-oscuro); text-decoration: none; font-weight: 600; font-family: 'Montserrat', sans-serif; transition: color 0.3s; }
         nav a:hover { color: var(--madera-clara); }
+
+        /* NOVO: Botão do Carrinho na Navbar */
+        .btn-nav-cart {
+            background-color: var(--tag-amarillo);
+            color: #000 !important;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-nav-cart:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+            color: #000 !important;
+        }
 
         section { padding: 100px 20px 60px; max-width: 1200px; margin: 0 auto; }
         .section-title {
@@ -94,29 +113,14 @@
 
         /* Avaliações do Google */
         .reviews-section {
-            background-color: var(--crema-claro);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border-top: 6px solid #4285F4; 
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
+            background-color: var(--crema-claro); border-radius: 12px; padding: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 6px solid #4285F4; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px;
         }
         .google-score { text-align: center; flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; }
         .google-score h3 { font-size: 2rem; margin-bottom: 5px; letter-spacing: -1px; }
         .score-number { font-size: 4rem; font-weight: 800; color: var(--texto-oscuro); line-height: 1.2; font-family: 'Montserrat', sans-serif;}
         .stars { margin: 5px 0 10px; }
         .star-full { color: #fbbc04; font-size: 2rem; }
-        .star-half { 
-            background: linear-gradient(90deg, #fbbc04 50%, #e0e0e0 50%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 2rem;
-        }
+        .star-half { background: linear-gradient(90deg, #fbbc04 50%, #e0e0e0 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2rem; }
         .total-reviews { color: #666; font-size: 1.1rem; margin-bottom: 20px; }
         .btn-google { display: inline-block; background-color: #fff; color: #4285F4; border: 2px solid #4285F4; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; }
         .btn-google:hover { background-color: #4285F4; color: #fff; box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3); }
@@ -130,16 +134,7 @@
 
         /* Estilos do Carrinho e Botões */
         .btn-add-cart {
-            background-color: var(--precio-verde);
-            color: #fff;
-            border: none;
-            padding: 12px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.3s;
-            text-transform: uppercase;
+            background-color: var(--precio-verde); color: #fff; border: none; padding: 12px; border-radius: 5px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; text-transform: uppercase;
         }
         .btn-add-cart:hover { background-color: #1aa37a; transform: translateY(-2px); }
         
@@ -154,6 +149,18 @@
         .btn-submit { background-color: #25D366; color: white; border: none; padding: 15px; width: 100%; border-radius: 5px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.3s; margin-top: 10px; }
         .btn-submit:hover { background-color: #1ebc5a; }
 
+        /* NOVO: Notificação Visual (Toast) */
+        #toast-container {
+            position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;
+        }
+        .toast {
+            background-color: #333; color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); font-weight: 600; font-family: 'Montserrat', sans-serif;
+            animation: slideIn 0.3s ease-out forwards, fadeOut 0.5s ease-out 2.5s forwards; opacity: 0; transform: translateX(100%);
+            border-left: 5px solid var(--precio-verde);
+        }
+        @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeOut { to { opacity: 0; transform: translateX(10px); } }
+
         /* Horarios de Apertura */
         .horarios-card { background-color: var(--crema-claro); padding: 40px; border-radius: 12px; border-top: 6px solid var(--madera-clara); max-width: 600px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         .horario-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px dashed var(--gris-borde); font-size: 1.1rem; }
@@ -167,6 +174,8 @@
 
         /* Responsivo */
         @media (max-width: 768px) {
+            nav { gap: 10px; padding: 10px; flex-wrap: wrap; }
+            .btn-nav-cart { font-size: 0.9rem; padding: 8px 15px; }
             .carousel-slide { flex-direction: column; text-align: center; }
             .slide-img { width: 100%; height: 200px; }
             .slide-content { width: 100%; padding: 20px 0 0 0; }
@@ -174,7 +183,7 @@
             .horario-row { flex-direction: column; text-align: center; gap: 5px; }
             .horario-hora { text-align: center; }
         }
-        /* Botões de Delivery */
+        
         .delivery-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
         .btn-delivery { padding: 15px 35px; border-radius: 30px; font-weight: 800; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; transition: transform 0.3s, box-shadow 0.3s; display: inline-flex; align-items: center; justify-content: center; }
         .btn-delivery:hover { transform: translateY(-4px); }
@@ -190,9 +199,10 @@
         <a href="#destacados">Destacados</a>
         <a href="#menu">Menú</a>
         <a href="#avaliacoes">Opiniones</a>
-        <a href="#reserva">Reservas</a>
-        <a href="#horarios">Horarios</a>
-        <a href="#ubicacion">Ubicación</a> 
+        <!-- BOTÃO DO CARRINHO NA BARRA DE NAVEGAÇÃO -->
+        <a href="#reserva" class="btn-nav-cart">
+            🛒 Mi Pedido (<span id="cart-nav-count">0</span>)
+        </a>
     </nav>
 
     <header id="home">
@@ -209,14 +219,6 @@
             <button class="carousel-btn btn-next">&#10095;</button>
             <div class="carousel-track" id="track-mejores"></div>
             <div class="carousel-dots" id="dots-mejores"></div>
-        </div>
-
-        <h2 class="section-title">Platos Nuevos</h2>
-        <div class="carousel-wrapper" id="carousel-nuevos">
-            <button class="carousel-btn btn-prev">&#10094;</button>
-            <button class="carousel-btn btn-next">&#10095;</button>
-            <div class="carousel-track" id="track-nuevos"></div>
-            <div class="carousel-dots" id="dots-nuevos"></div>
         </div>
     </section>
 
@@ -258,13 +260,6 @@
                         <span class="review-card-stars">★★★★★</span>
                     </div>
                     <p>"Sin duda la mejor hamburguesería de la zona. El pan es súper suave y la carne espectacular. 100% recomendado si estás por aquí."</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-card-header">
-                        <strong>Lucía Torres</strong>
-                        <span class="review-card-stars">★★★★★</span>
-                    </div>
-                    <p>"Local moderno, limpio y con una atención de primera. Pedí la Costilla Woven y me encantó. Relación calidad-precio inmejorable."</p>
                 </div>
             </div>
         </div>
@@ -324,14 +319,16 @@
         <p>&copy; 2026 Hamburgueseria Carmelos. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- CONTAINER PARA OS AVISOS TOAST (Fica escondido) -->
+    <div id="toast-container"></div>
+
     <script src="dados.js"></script>
 
     <script>
-        // LÓGICA DE RENDERIZAÇÃO DO MENU (AGORA COM O BOTÃO "ADICIONAR PEDIDO")
+        // RENDERIZAÇÃO DO MENU
         const menuContainer = document.getElementById('menu-container');
         if(typeof menuData !== 'undefined' && menuData.geral) {
             menuData.geral.forEach(item => {
-                // Removemos o '€' e substituímos vírgula por ponto para garantir que o JS leia como número no clique
                 let precoFormatado = item.preco.toString().replace('€', '').replace(',', '.').trim();
                 
                 menuContainer.innerHTML += `
@@ -341,7 +338,6 @@
                             <h4>${item.titulo}</h4>
                             <p>${item.desc}</p>
                             <div class="menu-preco">${item.preco}</div>
-                            <!-- Botão de Adicionar ao Carrinho Integrado -->
                             <button class="btn-add-cart" onclick="adicionarAoCarrinho('${item.titulo}', '${precoFormatado}')">Adicionar Pedido</button>
                         </div>
                     </div>
@@ -390,33 +386,49 @@
 
         if(typeof menuData !== 'undefined') {
             initCarousel(menuData.mejores, 'track-mejores', 'dots-mejores', 'carousel-mejores');
-            initCarousel(menuData.nuevos, 'track-nuevos', 'dots-nuevos', 'carousel-nuevos');
         }
 
-        // --- SISTEMA DE CARRINHO E ENVIO PARA WHATSAPP ATUALIZADO ---
+        // --- SISTEMA DE CARRINHO, NOTIFICAÇÕES E WHATSAPP ---
         let carrinho = [];
+
+        // Função para mostrar notificação (Toast)
+        function mostrarNotificacao(nomeProduto) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `✅ <strong>${nomeProduto}</strong> añadido al pedido`;
+            
+            container.appendChild(toast);
+
+            // Remove o elemento do HTML após a animação acabar (3s)
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
 
         function adicionarAoCarrinho(nome, precoTexto) {
             let precoNumerico = parseFloat(precoTexto);
-            
-            // Verifica se o item já está no carrinho
             let itemExistente = carrinho.find(item => item.nome === nome);
             
             if (itemExistente) {
-                // Se já existe, aumenta a quantidade
                 itemExistente.quantidade += 1;
             } else {
-                // Se não existe, adiciona com quantidade 1
                 carrinho.push({ nome: nome, preco: precoNumerico, quantidade: 1 });
             }
             
             atualizarInterfaceCarrinho();
+            mostrarNotificacao(nome); // Chama o aviso visual na tela
         }
 
         function atualizarInterfaceCarrinho() {
             const divLista = document.getElementById('lista-carrinho');
             const divTotal = document.getElementById('total-carrinho');
+            const navCartCount = document.getElementById('cart-nav-count'); // Contador no menu
             
+            // Atualiza contador global da Navbar somando as quantidades de todos os itens
+            let totalItens = carrinho.reduce((acc, curr) => acc + curr.quantidade, 0);
+            navCartCount.innerText = totalItens;
+
             if(carrinho.length === 0) {
                 divLista.innerHTML = '<p style="color: #888; font-size: 1rem;">Aún no has añadido platos.</p>';
                 divTotal.innerHTML = 'Total: 0,00€';
@@ -456,14 +468,12 @@
             const hora = document.getElementById('res-hora').value;
             const dataFormatada = data.split('-').reverse().join('/');
 
-            // Monta a lista de produtos com as quantidades
             let textoProdutos = carrinho.map(item => `▪️ ${item.quantidade}x ${item.nome} (${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}€)`).join('\n');
             let soma = carrinho.reduce((acc, curr) => acc + (curr.preco * curr.quantidade), 0).toFixed(2).replace('.', ',');
 
-            // Monta a mensagem final para o WhatsApp com o NOME DO CLIENTE
             const mensaje = `¡Hola Carmelo's! 🍔 Quisiera hacer una RESERVA CON PEDIDO:\n\n👤 *Nombre del Cliente:* ${nome}\n📅 *Fecha:* ${dataFormatada}\n⏰ *Hora:* ${hora}\n\n🛒 *MI PEDIDO:*\n${textoProdutos}\n\n💰 *Total:* ${soma}€\n\n¿Tenéis disponibilidad de mesa para esta hora?`;
 
-            const numeroRestaurante = "34600000000"; // Mude para o número real de telefone do local
+            const numeroRestaurante = "34600000000"; 
             const urlWhatsApp = `https://wa.me/${numeroRestaurante}?text=${encodeURIComponent(mensaje)}`;
             window.open(urlWhatsApp, '_blank');
         });
