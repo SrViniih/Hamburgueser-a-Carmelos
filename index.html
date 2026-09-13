@@ -130,6 +130,7 @@
         .review-card-stars { color: #fbbc04; font-size: 1.2rem; }
         .review-card p { font-size: 0.95rem; color: #555; font-style: italic; line-height: 1.5; }
 
+
         /* Estilos do Carrinho e Botões */
         .btn-add-cart {
             background-color: var(--precio-verde);
@@ -313,23 +314,23 @@
     </section>
 
     <section id="reserva" style="padding-top: 40px; padding-bottom: 20px;">
-        <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Haz tu Reserva</h2>
+        <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Reserva con Pedido</h2>
         <div class="reserva-form">
-           <form id="form-reserva">
-                <div class="form-group"><input type="text" id="res-nome" placeholder="Nombre Completo" required></div>
-                <div class="form-group">
-                    <select id="res-pessoas" required>
-                        <option value="">Número de Personas...</option>
-                        <option value="1">1 Persona</option>
-                        <option value="2">2 Personas</option>
-                        <option value="3">3 Personas</option>
-                        <option value="4">4 Personas</option>
-                        <option value="5+">5+ Personas</option>
-                    </select>
+            
+            <!-- Resumo dos produtos escolhidos -->
+            <div class="carrinho-resumo">
+                <h4 style="margin-bottom: 10px;">Tu Pedido:</h4>
+                <div id="lista-carrinho">
+                    <p style="color: #888; font-size: 0.9rem;">Aún no has añadido platos.</p>
                 </div>
+                <div class="total-carrinho" id="total-carrinho">Total: 0,00€</div>
+            </div>
+
+            <form id="form-reserva">
+                <div class="form-group"><input type="text" id="res-nome" placeholder="Nombre Completo" required></div>
                 <div class="form-group"><input type="date" id="res-data" required></div>
                 <div class="form-group"><input type="time" id="res-hora" required></div>
-                <button type="submit" class="btn-submit">Confirmar Reserva vía WhatsApp</button>
+                <button type="submit" class="btn-submit">Enviar Reserva y Pedido a WhatsApp</button>
             </form>
         </div>
     </section>
