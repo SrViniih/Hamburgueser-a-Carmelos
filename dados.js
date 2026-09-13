@@ -26,6 +26,22 @@ const menuData = {
             tag: "⭐ FAVORITO"
         }
     ],
+    
+    const menuContainer = document.getElementById('menu-container');
+        menuData.geral.forEach(item => {
+            menuContainer.innerHTML += `
+                <div class="menu-item">
+                    <img src="${item.imagem}" alt="${item.titulo}" class="menu-item-img">
+                    <div class="menu-item-content">
+                        <h4>${item.titulo}</h4>
+                        <p>${item.desc}</p>
+                        <div class="menu-preco">${item.preco}</div>
+                        <!-- Botão que chama a função de adicionar ao carrinho -->
+                        <button class="btn-add-cart" onclick="adicionarAoCarrinho('${item.titulo}', '${item.preco}')">Añadir al Pedido</button>
+                    </div>
+                </div>
+            `;
+        });
 
     // Carrossel 2: Platos Nuevos
     nuevos: [
