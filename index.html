@@ -130,12 +130,42 @@
         .review-card-stars { color: #fbbc04; font-size: 1.2rem; }
         .review-card p { font-size: 0.95rem; color: #555; font-style: italic; line-height: 1.5; }
 
-        /* Formularios de Reserva */
-        .reserva-form { background-color: var(--crema-claro); padding: 40px; border-radius: 12px; border-top: 6px solid var(--madera-clara); }
-        .form-group { margin-bottom: 20px; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--gris-borde); border-radius: 8px; }
-        .btn-submit { width: 100%; padding: 15px; background: var(--texto-oscuro); color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn-submit:hover { background: var(--madera-clara); }
+        /* Estilos do Carrinho e Botões */
+        .btn-add-cart {
+            background-color: var(--precio-verde);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            transition: 0.3s;
+        }
+        .btn-add-cart:hover { background-color: #1aa37a; }
+        
+        .carrinho-resumo {
+            background: #fff;
+            border: 1px solid var(--gris-borde);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .item-carrinho {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #ccc;
+            padding: 5px 0;
+            font-size: 0.9rem;
+        }
+        .total-carrinho {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: var(--precio-verde);
+        }
 
         /* NUEVO: Horarios de Apertura */
         .horarios-card {
