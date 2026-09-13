@@ -443,27 +443,64 @@
 
         initCarousel(menuData.mejores, 'track-mejores', 'dots-mejores', 'carousel-mejores');
         initCarousel(menuData.nuevos, 'track-nuevos', 'dots-nuevos', 'carousel-nuevos');
-        // Lógica do WhatsApp
-        document.getElementById('form-reserva').addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede o site de recarregar a página
+        // Sistema de Carrinho e WhatsApp
+        let carrinho = [];
+
+        function adicionarAoCarrinho(nome, precoTexto) {
+            // Converte o preço de texto (ex: "12,50€") para número para podermos somar
+            let precoNumerico = parseFloat(precoTexto.replace('€', '').replace(',', '.'));
             
-            // Pega os valores que o cliente digitou
+            carrinho.push({ nome: nome, preco: precoNumerico, precoStr: precoTexto });
+            atualizarInterfaceCarrinho();
+            
+            // Dá um feedback visual rápido
+            alert(`${nome} añadido al pedido!`);
+        }
+
+        function atualizarInterfaceCarrinho() {
+            const divLista = document.getElementById('lista-carrinho');
+            const divTotal = document.getElementById('total-carrinho');
+            
+            if(carrinho.length === 0) return;
+
+            divLista.innerHTML = ''; // Limpa a mensagem vazia
+            let somaTotal = 0;
+
+            carrinho.forEach(item => {
+                divLista.innerHTML += `
+                    <div class="item-carrinho">
+                        <span>1x ${item.nome}</span>
+                        <span>${item.precoStr}</span>
+                    </div>
+                `;
+                somaTotal += item.preco;
+            });
+
+            divTotal.innerHTML = `Total: ${somaTotal.toFixed(2).replace('.', ',')}€`;
+        }
+
+        document.getElementById('form-reserva').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if(carrinho.length === 0) {
+                alert("Por favor, añade al menos un plato al pedido antes de reservar.");
+                return;
+            }
+
             const nome = document.getElementById('res-nome').value;
-            const pessoas = document.getElementById('res-pessoas').value;
             const data = document.getElementById('res-data').value;
             const hora = document.getElementById('res-hora').value;
-
-            // Formata a data (de AAAA-MM-DD para DD/MM/AAAA)
             const dataFormatada = data.split('-').reverse().join('/');
 
-            // Monta a mensagem bonitinha com emojis
-            const mensagem = `¡Hola Carmelo's! 🍔 Quisiera hacer una reserva:\n\n👤 *Nombre:* ${nome}\n👥 *Personas:* ${pessoas}\n📅 *Fecha:* ${dataFormatada}\n⏰ *Hora:* ${hora}\n\n¿Tienen disponibilidad?`;
+            // Monta a lista de produtos para o WhatsApp
+            let textoProdutos = carrinho.map(item => `▪️ 1x ${item.nome} (${item.precoStr})`).join('\n');
+            let soma = carrinho.reduce((acc, curr) => acc + curr.preco, 0).toFixed(2).replace('.', ',');
 
-            // Coloque o número do restaurante aqui (Código do país 34 + Número do celular)
-            const numeroRestaurante = "34643496470"; 
+            // Monta a mensagem final
+            const mensaje = `¡Hola Carmelo's! 🍔 Quisiera hacer una RESERVA CON PEDIDO:\n\n👤 *Nombre:* ${nome}\n📅 *Fecha:* ${dataFormatada}\n⏰ *Hora:* ${hora}\n\n🛒 *MI PEDIDO:*\n${textoProdutos}\n\n💰 *Total aproximado:* ${soma}€\n\n¿Tenéis disponibilidad de mesa para esta hora?`;
 
-            // Codifica a mensagem para o formato de link da internet e abre o WhatsApp
-            const urlWhatsApp = `https://wa.me/${numeroRestaurante}?text=${encodeURIComponent(mensagem)}`;
+            const numeroRestaurante = "34600000000"; // Mude para o número real
+            const urlWhatsApp = `https://wa.me/${numeroRestaurante}?text=${encodeURIComponent(mensaje)}`;
             window.open(urlWhatsApp, '_blank');
         });
     </script>
