@@ -26,15 +26,15 @@
         const { useState } = React;
 
         const produtos = [
-            { id: 1, nome: "1. Carmelo Burger", desc: "Ternera 180g, queso plato suave, cebolla caramelizada.", preco: 11.50, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" },
-            { id: 2, nome: "2. Smash Moderno", desc: "Doble smash burger 90g, doble gouda, mostaza.", preco: 12.00, img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" },
-            { id: 3, nome: "3. Pollo Tejido", desc: "Contramuslo de pollo crujiente, crema de queso.", preco: 11.00, img: "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=600&q=80" },
-            { id: 4, nome: "4. Ternera Carmelo 200g", desc: "Ternera premium, queso azul suave, pera asada.", preco: 16.00, img: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80" },
-            { id: 5, nome: "5. Veggie Art", desc: "Hamburguesa de quinoa, champiñones, rúcula.", preco: 12.50, img: "https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?auto=format&fit=crop&w=600&q=80" },
-            { id: 6, nome: "6. Carmelo Junior", desc: "Mini burger 100g, queso havarti, patatas.", preco: 9.00, img: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" },
-            { id: 7, nome: "7. Patatas Woven", desc: "Patatas rústicas con salsa de queso suave.", preco: 7.50, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80" },
-            { id: 8, nome: "8. Crujientes de Queso", desc: "Varitas de queso empanadas con panko.", preco: 8.00, img: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=80" },
-            { id: 9, nome: "9. Cerveza Carmelos", desc: "Pinta 500ml de cerveza artesanal rubia.", preco: 5.00, img: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?auto=format&fit=crop&w=600&q=80" }
+            { id: 1, nome: "1. Carmelo Burger", desc: "Ternera 180g, queso plato suave, cebolla caramelizada.", preco: 11.50, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80", destacado: true },
+            { id: 2, nome: "2. Smash Moderno", desc: "Doble smash burger 90g, doble gouda, mostaza.", preco: 12.00, img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80", destacado: true },
+            { id: 3, nome: "3. Pollo Tejido", desc: "Contramuslo de pollo crujiente, crema de queso.", preco: 11.00, img: "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=600&q=80", destacado: true },
+            { id: 4, nome: "4. Ternera Carmelo 200g", desc: "Ternera premium, queso azul suave, pera asada.", preco: 16.00, img: "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80", destacado: false },
+            { id: 5, nome: "5. Veggie Art", desc: "Hamburguesa de quinoa, champiñones, rúcula.", preco: 12.50, img: "https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?auto=format&fit=crop&w=600&q=80", destacado: false },
+            { id: 6, nome: "6. Carmelo Junior", desc: "Mini burger 100g, queso havarti, patatas.", preco: 9.00, img: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80", destacado: false },
+            { id: 7, nome: "7. Patatas Woven", desc: "Patatas rústicas con salsa de queso suave.", preco: 7.50, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80", destacado: false },
+            { id: 8, nome: "8. Crujientes de Queso", desc: "Varitas de queso empanadas con panko.", preco: 8.00, img: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=80", destacado: false },
+            { id: 9, nome: "9. Cerveza Carmelos", desc: "Pinta 500ml de cerveza artesanal rubia.", preco: 5.00, img: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?auto=format&fit=crop&w=600&q=80", destacado: false }
         ];
 
         function App() {
@@ -75,7 +75,7 @@
 
                 texto += `\n💰 *Total:* *${valorTotal.toFixed(2)} €*`;
 
-                const numeroWhatsApp = "34600000000"; // Substitua pelo número real da hamburgueria
+                const numeroWhatsApp = "34600000000"; // Substitua pelo número real
                 const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
                 window.open(url, '_blank');
             };
@@ -91,9 +91,10 @@
                             <a href="#destacados" className="hover:text-amber-600 transition">Destacados</a>
                             <a href="#menu" className="hover:text-amber-600 transition">Menú</a>
                             <a href="#opiniones" className="hover:text-amber-600 transition">Opiniones</a>
+                            <a href="#contacto" className="hover:text-amber-600 transition">Ubicación</a>
                         </nav>
 
-                        {/* Botão Mi Pedido no Topo (como na sua referência) */}
+                        {/* Botão Mi Pedido no Topo com contador */}
                         <button 
                             onClick={() => setIsModalOpen(true)}
                             className="relative bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full font-medium shadow-md transition flex items-center gap-2 cursor-pointer"
@@ -108,7 +109,48 @@
                         </button>
                     </header>
 
-                    {/* Conteúdo Principal */}
+                    {/* Seção Início / Hero */}
+                    <section id="inicio" className="bg-amber-900 text-white py-16 px-6 text-center">
+                        <div className="max-w-3xl mx-auto">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-4">Hamburguesería Carmelos</h1>
+                            <p className="text-lg text-amber-100 mb-6">Las mejores hamburguesas artesanales con ingredientes selectos y mucho amor.</p>
+                            <div className="flex justify-center gap-4">
+                                <a href="#menu" className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-xl font-bold shadow transition">Ver Menú</a>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-xl font-bold shadow transition flex items-center gap-2">
+                                    <i className="fa-brands fa-instagram"></i> Instagram
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Seção Destacados */}
+                    <section id="destacados" className="max-w-7xl mx-auto px-4 py-12 w-full">
+                        <h2 className="text-2xl font-bold text-center mb-8 uppercase tracking-wide text-gray-900">Platos Destacados</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {produtos.filter(p => p.destacado).map(prod => (
+                                <div key={prod.id} className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col justify-between border border-gray-100">
+                                    <div>
+                                        <img src={prod.img} alt={prod.nome} className="w-full h-48 object-cover" />
+                                        <div className="p-4">
+                                            <h3 className="font-bold text-lg text-gray-900">{prod.nome}</h3>
+                                            <p className="text-gray-600 text-sm mt-1">{prod.desc}</p>
+                                            <span className="inline-block font-bold text-amber-600 text-lg mt-3">{prod.preco.toFixed(2)} €</span>
+                                        </div>
+                                    </div>
+                                    <div className="p-4 pt-0">
+                                        <button 
+                                            onClick={() => adicionarPedido(prod)}
+                                            className="w-full bg-[#10B981] hover:bg-emerald-600 text-white font-medium py-2.5 rounded-lg shadow transition flex items-center justify-center gap-2 cursor-pointer"
+                                        >
+                                            ADICIONAR PEDIDO
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Conteúdo Principal / Menú Completo */}
                     <main className="max-w-7xl mx-auto px-4 py-8 flex-grow w-full" id="menu">
                         <h2 className="text-3xl font-bold text-center mb-8 uppercase tracking-wide text-gray-900">Menú Completo</h2>
                         
@@ -136,7 +178,52 @@
                         </div>
                     </main>
 
-                    {/* Botão Flutuante (Canto Inferior Direito - conforme rascunho) */}
+                    {/* Seção Opiniones */}
+                    <section id="opiniones" className="bg-amber-50 py-12 px-4 mt-12 border-t border-b border-amber-100">
+                        <div className="max-w-5xl mx-auto text-center">
+                            <h2 className="text-2xl font-bold mb-8 uppercase tracking-wide text-gray-900">Opiniones de Clientes</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                                <div className="bg-white p-6 rounded-xl shadow-sm border border-amber-100">
+                                    <div className="text-amber-500 mb-2">★★★★★</div>
+                                    <p className="text-gray-600 text-sm mb-4">"Las mejores hamburguesas de la zona sin duda. El pan brioche es increíble y la carne en su punto."</p>
+                                    <span className="font-bold text-xs text-gray-900">— Carlos M.</span>
+                                </div>
+                                <div className="bg-white p-6 rounded-xl shadow-sm border border-amber-100">
+                                    <div className="text-amber-500 mb-2">★★★★★</div>
+                                    <p className="text-gray-600 text-sm mb-4">"El servicio a través de la web es súper rápido y cómodo. ¡Repetiré seguro!"</p>
+                                    <span className="font-bold text-xs text-gray-900">— Laura G.</span>
+                                </div>
+                                <div className="bg-white p-6 rounded-xl shadow-sm border border-amber-100">
+                                    <div className="text-amber-500 mb-2">★★★★★</div>
+                                    <p className="text-gray-600 text-sm mb-4">"Ambiente excelente y raciones generosas. Las patatas con salsa de queso son obrigatorias."</p>
+                                    <span className="font-bold text-xs text-gray-900">— Alejandro R.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Seção Ubicación / Localización */}
+                    <section id="contacto" className="max-w-7xl mx-auto px-4 py-12 w-full">
+                        <h2 className="text-2xl font-bold text-center mb-8 uppercase tracking-wide text-gray-900">Dónde Estamos</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                            <div>
+                                <h3 className="font-bold text-xl text-amber-900 mb-3">Hamburgueseria Carmelos</h3>
+                                <p className="text-gray-600 mb-2"><i className="fa-solid fa-location-dot text-amber-600 mr-2"></i> Calle Principal 123, Local 4</p>
+                                <p className="text-gray-600 mb-4"><i className="fa-solid fa-clock text-amber-600 mr-2"></i> Martes a Domingo: 13:00 - 23:30</p>
+                                <p className="text-gray-600 text-sm">Ven a visitarnos o haz tu pedido online con recogida programada directo a nuestro WhatsApp.</p>
+                            </div>
+                            <div className="h-64 bg-gray-200 rounded-xl overflow-hidden shadow-inner flex items-center justify-center text-gray-500">
+                                <span className="text-sm font-medium"><i className="fa-solid fa-map-location-dot mr-2"></i> Mapa de Ubicación (Google Maps)</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="bg-gray-900 text-white py-6 text-center text-sm">
+                        <p>© 2026 Hamburgueseria Carmelos. Todos los derechos reservados.</p>
+                    </footer>
+
+                    {/* Botão Flutuante (Canto Inferior Direito) */}
                     <button 
                         onClick={() => setIsModalOpen(true)}
                         className="fixed bottom-6 right-6 z-40 bg-amber-500 hover:bg-amber-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-xl transition transform hover:scale-105 cursor-pointer"
@@ -152,7 +239,7 @@
                     {/* Modal / Interface Flutuante do Carrinho */}
                     {isModalOpen && (
                         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex justify-end transition-opacity">
-                            <div className="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between p-6 overflow-y-auto animate-slide-left">
+                            <div className="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between p-6 overflow-y-auto">
                                 <div>
                                     <div className="flex justify-between items-center border-b pb-4 mb-4">
                                         <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
@@ -182,12 +269,12 @@
                                                     <div className="flex items-center gap-3">
                                                         <button 
                                                             onClick={() => removerPedido(item.id)}
-                                                            className="w-7 h-7 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center text-gray-700 font-bold"
+                                                            className="w-7 h-7 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center text-gray-700 font-bold cursor-pointer"
                                                         >-</button>
                                                         <span className="text-sm font-semibold">{item.qtd}</span>
                                                         <button 
                                                             onClick={() => adicionarPedido(item)}
-                                                            className="w-7 h-7 bg-amber-500 hover:bg-amber-600 text-white rounded-full flex items-center justify-center font-bold"
+                                                            className="w-7 h-7 bg-amber-500 hover:bg-amber-600 text-white rounded-full flex items-center justify-center font-bold cursor-pointer"
                                                         >+</button>
                                                     </div>
                                                 </div>
