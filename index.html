@@ -90,7 +90,7 @@
         .menu-item-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
         .menu-item h4 { font-size: 1.2rem; margin-bottom: 8px; }
         .menu-item p { font-size: 0.95rem; color: #666; margin-bottom: 15px; flex-grow: 1; }
-        .menu-item .menu-preco { color: var(--madera-clara); font-weight: bold; font-size: 1.2rem; border-top: 1px solid var(--gris-borde); padding-top: 10px;}
+        .menu-item .menu-preco { color: var(--madera-clara); font-weight: bold; font-size: 1.2rem; border-top: 1px solid var(--gris-borde); padding-top: 10px; margin-bottom: 15px;}
 
         /* Avaliações do Google */
         .reviews-section {
@@ -118,9 +118,7 @@
             font-size: 2rem;
         }
         .total-reviews { color: #666; font-size: 1.1rem; margin-bottom: 20px; }
-        .btn-google {
-            display: inline-block; background-color: #fff; color: #4285F4; border: 2px solid #4285F4; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease;
-        }
+        .btn-google { display: inline-block; background-color: #fff; color: #4285F4; border: 2px solid #4285F4; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; }
         .btn-google:hover { background-color: #4285F4; color: #fff; box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3); }
 
         .review-highlights { flex: 2; display: flex; gap: 20px; min-width: 300px; }
@@ -130,65 +128,39 @@
         .review-card-stars { color: #fbbc04; font-size: 1.2rem; }
         .review-card p { font-size: 0.95rem; color: #555; font-style: italic; line-height: 1.5; }
 
-
         /* Estilos do Carrinho e Botões */
         .btn-add-cart {
             background-color: var(--precio-verde);
             color: #fff;
             border: none;
-            padding: 10px;
+            padding: 12px;
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 10px;
             width: 100%;
             transition: 0.3s;
+            text-transform: uppercase;
         }
-        .btn-add-cart:hover { background-color: #1aa37a; }
+        .btn-add-cart:hover { background-color: #1aa37a; transform: translateY(-2px); }
         
-        .carrinho-resumo {
-            background: #fff;
-            border: 1px solid var(--gris-borde);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .item-carrinho {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dashed #ccc;
-            padding: 5px 0;
-            font-size: 0.9rem;
-        }
-        .total-carrinho {
-            font-weight: bold;
-            text-align: right;
-            margin-top: 10px;
-            font-size: 1.2rem;
-            color: var(--precio-verde);
-        }
+        .carrinho-resumo { background: #fff; border: 1px solid var(--gris-borde); padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .item-carrinho { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #ccc; padding: 10px 0; font-size: 1rem; }
+        .item-carrinho:last-child { border-bottom: none; }
+        .qtd-badge { background-color: #25D366; color: white; padding: 2px 8px; border-radius: 12px; font-weight: bold; font-size: 0.85rem; margin-right: 10px; }
+        .total-carrinho { font-weight: bold; text-align: right; margin-top: 15px; font-size: 1.4rem; color: var(--precio-verde); border-top: 2px solid var(--gris-borde); padding-top: 15px; }
 
-        /* NUEVO: Horarios de Apertura */
-        .horarios-card {
-            background-color: var(--crema-claro);
-            padding: 40px;
-            border-radius: 12px;
-            border-top: 6px solid var(--madera-clara);
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-        .horario-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px dashed var(--gris-borde);
-            font-size: 1.1rem;
-        }
+        .form-group { margin-bottom: 15px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid var(--gris-borde); border-radius: 5px; font-family: 'Open Sans', sans-serif; }
+        .btn-submit { background-color: #25D366; color: white; border: none; padding: 15px; width: 100%; border-radius: 5px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .btn-submit:hover { background-color: #1ebc5a; }
+
+        /* Horarios de Apertura */
+        .horarios-card { background-color: var(--crema-claro); padding: 40px; border-radius: 12px; border-top: 6px solid var(--madera-clara); max-width: 600px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .horario-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px dashed var(--gris-borde); font-size: 1.1rem; }
         .horario-row:last-child { border-bottom: none; }
         .horario-dia { font-weight: bold; font-family: 'Montserrat', sans-serif; color: var(--texto-oscuro); }
         .horario-hora { color: #555; text-align: right; }
-        .cerrado { color: #d9534f; font-weight: bold; } /* Destaque vermelho para dias fechados */
+        .cerrado { color: #d9534f; font-weight: bold; }
 
         /* Footer */
         footer { background-color: rgba(255, 255, 255, 0.95); padding: 50px 20px; text-align: center; border-top: 6px solid var(--madera-clara); }
@@ -203,24 +175,9 @@
             .horario-hora { text-align: center; }
         }
         /* Botões de Delivery */
-        .delivery-buttons {
-            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;
-        }
-        .btn-delivery {
-            padding: 15px 35px;
-            border-radius: 30px;
-            font-weight: 800;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .delivery-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .btn-delivery { padding: 15px 35px; border-radius: 30px; font-weight: 800; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; transition: transform 0.3s, box-shadow 0.3s; display: inline-flex; align-items: center; justify-content: center; }
         .btn-delivery:hover { transform: translateY(-4px); }
-        
-        /* Cores Oficiais dos Apps */
         .btn-glovo { background-color: #FFC244; color: #000; box-shadow: 0 5px 15px rgba(255, 194, 68, 0.3); }
         .btn-uber { background-color: #06C167; color: #fff; box-shadow: 0 5px 15px rgba(6, 193, 103, 0.3); }
         .btn-justeat { background-color: #FF8000; color: #fff; box-shadow: 0 5px 15px rgba(255, 128, 0, 0.3); }
@@ -263,38 +220,36 @@
         </div>
     </section>
 
+    <!-- MENU COM BOTÕES DE ADICIONAR PEDIDO -->
     <section id="menu">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Menú Completo</h2>
         <div class="menu-grid" id="menu-container">
-            </div>
+            <!-- Os itens serão gerados dinamicamente via JS aqui -->
+        </div>
     </section>
-<!-- DELIVERY / PIDE A DOMICILIO -->
+
     <section id="delivery" style="padding-top: 40px; padding-bottom: 20px;">
         <div style="background-color: var(--card-dark); border-radius: 12px; padding: 50px 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
             <h2 class="section-title" style="color: #fff; border: none; padding: 0; text-align: center; margin-bottom: 15px;">Pide a Domicilio</h2>
             <p style="font-size: 1.2rem; color: #aaa; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">¿Prefieres quedarte en casa? Encuéntranos en tus plataformas de delivery favoritas y te lo llevamos caliente.</p>
             
             <div class="delivery-buttons">
-                <!-- Basta trocar o "#" pelo link real do restaurante no aplicativo -->
                 <a href="https://glovoapp.com/es/es/valladolid/stores/cerveceria-carmelo" target="_blank" class="btn-delivery btn-glovo">Pedir por Glovo</a>
                 <a href="#" target="_blank" class="btn-delivery btn-uber">Pedir por Uber Eats</a>
                 <a href="#" target="_blank" class="btn-delivery btn-justeat">Pedir por Just Eat</a>
             </div>
         </div>
     </section>
+
     <section id="avaliacoes" style="padding-top: 40px; padding-bottom: 20px;">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Lo que dicen de nosotros</h2>
         <div class="reviews-section">
             <div class="google-score">
-                <h3>
-                    <span style="color: #4285F4">G</span><span style="color: #EA4335">o</span><span style="color: #FBBC05">o</span><span style="color: #4285F4">g</span><span style="color: #34A853">l</span><span style="color: #EA4335">e</span>
-                </h3>
+                <h3><span style="color: #4285F4">G</span><span style="color: #EA4335">o</span><span style="color: #FBBC05">o</span><span style="color: #4285F4">g</span><span style="color: #34A853">l</span><span style="color: #EA4335">e</span></h3>
                 <div class="score-number">4,5</div>
-                <div class="stars">
-                    <span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-half">★</span>
-                </div>
+                <div class="stars"><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-full">★</span><span class="star-half">★</span></div>
                 <div class="total-reviews">Basado en <strong>2.521</strong> opiniones</div>
-                <a href="https://www.google.es/maps/place/Hamburgueser%C3%ADa+Carmelo's/@41.6403918,-4.7223515,17z/data=!3m1!4b1!4m6!3m5!1s0xd4712c8e097655f:0x5a8b35aa93c652e7!8m2!3d41.6403878!4d-4.7197766!16s%2Fg%2F113h2pj0g?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google">Ver todas las opiniones en Google</a>
+                <a href="#" target="_blank" class="btn-google">Ver todas las opiniones en Google</a>
             </div>
             <div class="review-highlights">
                 <div class="review-card">
@@ -317,21 +272,26 @@
 
     <section id="reserva" style="padding-top: 40px; padding-bottom: 20px;">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Reserva con Pedido</h2>
-        <div class="reserva-form">
+        <div class="reserva-form" style="max-width: 600px; margin: 0 auto;">
             
-            <!-- Resumo dos produtos escolhidos -->
+            <!-- Resumo dos produtos escolhidos (Carrinho) -->
             <div class="carrinho-resumo">
-                <h4 style="margin-bottom: 10px;">Tu Pedido:</h4>
+                <h4 style="margin-bottom: 15px; font-size: 1.2rem; font-family: 'Montserrat', sans-serif;">Tu Pedido:</h4>
                 <div id="lista-carrinho">
-                    <p style="color: #888; font-size: 0.9rem;">Aún no has añadido platos.</p>
+                    <p style="color: #888; font-size: 1rem;">Aún no has añadido platos.</p>
                 </div>
                 <div class="total-carrinho" id="total-carrinho">Total: 0,00€</div>
             </div>
 
+            <!-- Formulário que envia pro WhatsApp -->
             <form id="form-reserva">
-                <div class="form-group"><input type="text" id="res-nome" placeholder="Nombre Completo" required></div>
-                <div class="form-group"><input type="date" id="res-data" required></div>
-                <div class="form-group"><input type="time" id="res-hora" required></div>
+                <div class="form-group">
+                    <input type="text" id="res-nome" placeholder="Nombre del Cliente" required>
+                </div>
+                <div class="form-group" style="display: flex; gap: 10px;">
+                    <input type="date" id="res-data" required style="flex: 1;">
+                    <input type="time" id="res-hora" required style="flex: 1;">
+                </div>
                 <button type="submit" class="btn-submit">Enviar Reserva y Pedido a WhatsApp</button>
             </form>
         </div>
@@ -340,49 +300,22 @@
     <section id="horarios" style="padding-top: 40px;">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Horarios de Apertura</h2>
         <div class="horarios-card">
-            <div class="horario-row">
-                <span class="horario-dia">Lunes</span>
-                <span class="horario-hora">10:30–16:30 / 19:00–23:30</span>
-            </div>
-            <div class="horario-row">
-                <span class="horario-dia">Martes</span>
-                <span class="horario-hora cerrado">Cerrado</span>
-            </div>
-            <div class="horario-row">
-                <span class="horario-dia">Miércoles</span>
-                <span class="horario-hora">10:30–16:30 / 19:00–23:30</span>
-            </div>
-            <div class="horario-row">
-                <span class="horario-dia">Jueves</span>
-                <span class="horario-hora">10:30–16:30 / 19:00–23:30</span>
-            </div>
-            <div class="horario-row">
-                <span class="horario-dia">Viernes</span>
-                <span class="horario-hora">10:30–16:30 / 19:00–00:00</span>
-            </div>
-            <div class="horario-row">
-                <span class="horario-dia">Sábado</span>
-                <span class="horario-hora">12:00–16:30 / 19:00–00:00</span>
-            </div>
-            <div class="horario-row">
-                <span class="horario-dia">Domingo</span>
-                <span class="horario-hora">12:00–16:30 / 19:00–23:30</span>
-            </div>
+            <div class="horario-row"><span class="horario-dia">Lunes</span><span class="horario-hora">10:30–16:30 / 19:00–23:30</span></div>
+            <div class="horario-row"><span class="horario-dia">Martes</span><span class="horario-hora cerrado">Cerrado</span></div>
+            <div class="horario-row"><span class="horario-dia">Miércoles</span><span class="horario-hora">10:30–16:30 / 19:00–23:30</span></div>
+            <div class="horario-row"><span class="horario-dia">Jueves</span><span class="horario-hora">10:30–16:30 / 19:00–23:30</span></div>
+            <div class="horario-row"><span class="horario-dia">Viernes</span><span class="horario-hora">10:30–16:30 / 19:00–00:00</span></div>
+            <div class="horario-row"><span class="horario-dia">Sábado</span><span class="horario-hora">12:00–16:30 / 19:00–00:00</span></div>
+            <div class="horario-row"><span class="horario-dia">Domingo</span><span class="horario-hora">12:00–16:30 / 19:00–23:30</span></div>
         </div>
     </section>
 
-    <!-- NUEVO: Sección de Ubicación con Mapa -->
     <section id="ubicacion" style="padding-top: 40px; padding-bottom: 40px;">
         <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Nuestra Ubicación</h2>
         <div style="max-width: 800px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 6px solid var(--madera-clara); margin-top: 30px;">
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.3320666993135!2d-4.722351523439976!3d41.64039177126786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4712c8e097655f%3A0x5a8b35aa93c652e7!2sHamburgueser%C3%ADa%20Carmelo&#39;s!5e0!3m2!1ses!2ses!4v1715000000000!5m2!1ses!2ses" 
-                width="100%" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
     </section>
@@ -394,24 +327,33 @@
     <script src="dados.js"></script>
 
     <script>
+        // LÓGICA DE RENDERIZAÇÃO DO MENU (AGORA COM O BOTÃO "ADICIONAR PEDIDO")
         const menuContainer = document.getElementById('menu-container');
-        menuData.geral.forEach(item => {
-            menuContainer.innerHTML += `
-                <div class="menu-item">
-                    <img src="${item.imagem}" alt="${item.titulo}" class="menu-item-img" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80'">
-                    <div class="menu-item-content">
-                        <h4>${item.titulo}</h4>
-                        <p>${item.desc}</p>
-                        <div class="menu-preco">${item.preco}</div>
+        if(typeof menuData !== 'undefined' && menuData.geral) {
+            menuData.geral.forEach(item => {
+                // Removemos o '€' e substituímos vírgula por ponto para garantir que o JS leia como número no clique
+                let precoFormatado = item.preco.toString().replace('€', '').replace(',', '.').trim();
+                
+                menuContainer.innerHTML += `
+                    <div class="menu-item">
+                        <img src="${item.imagem}" alt="${item.titulo}" class="menu-item-img" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80'">
+                        <div class="menu-item-content">
+                            <h4>${item.titulo}</h4>
+                            <p>${item.desc}</p>
+                            <div class="menu-preco">${item.preco}</div>
+                            <!-- Botão de Adicionar ao Carrinho Integrado -->
+                            <button class="btn-add-cart" onclick="adicionarAoCarrinho('${item.titulo}', '${precoFormatado}')">Adicionar Pedido</button>
+                        </div>
                     </div>
-                </div>
-            `;
-        });
+                `;
+            });
+        }
 
         function initCarousel(dataArray, trackId, dotsId, wrapperId) {
             const track = document.getElementById(trackId);
             const dotsContainer = document.getElementById(dotsId);
             const wrapper = document.getElementById(wrapperId);
+            if(!track || !dataArray) return;
             
             dataArray.forEach((item, index) => {
                 track.innerHTML += `
@@ -441,57 +383,61 @@
                 dots[currentIndex].classList.add('active');
             }
 
-            btnNext.addEventListener('click', () => {
-                currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
-                updateCarousel();
-            });
-
-            btnPrev.addEventListener('click', () => {
-                currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
-                updateCarousel();
-            });
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', (e) => {
-                    currentIndex = parseInt(e.target.getAttribute('data-index'));
-                    updateCarousel();
-                });
-            });
+            btnNext.addEventListener('click', () => { currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1; updateCarousel(); });
+            btnPrev.addEventListener('click', () => { currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1; updateCarousel(); });
+            dots.forEach(dot => { dot.addEventListener('click', (e) => { currentIndex = parseInt(e.target.getAttribute('data-index')); updateCarousel(); }); });
         }
 
-        initCarousel(menuData.mejores, 'track-mejores', 'dots-mejores', 'carousel-mejores');
-        initCarousel(menuData.nuevos, 'track-nuevos', 'dots-nuevos', 'carousel-nuevos');
-        // Sistema de Carrinho e WhatsApp
+        if(typeof menuData !== 'undefined') {
+            initCarousel(menuData.mejores, 'track-mejores', 'dots-mejores', 'carousel-mejores');
+            initCarousel(menuData.nuevos, 'track-nuevos', 'dots-nuevos', 'carousel-nuevos');
+        }
+
+        // --- SISTEMA DE CARRINHO E ENVIO PARA WHATSAPP ATUALIZADO ---
         let carrinho = [];
 
         function adicionarAoCarrinho(nome, precoTexto) {
-            // Converte o preço de texto (ex: "12,50€") para número para podermos somar
-            let precoNumerico = parseFloat(precoTexto.replace('€', '').replace(',', '.'));
+            let precoNumerico = parseFloat(precoTexto);
             
-            carrinho.push({ nome: nome, preco: precoNumerico, precoStr: precoTexto });
+            // Verifica se o item já está no carrinho
+            let itemExistente = carrinho.find(item => item.nome === nome);
+            
+            if (itemExistente) {
+                // Se já existe, aumenta a quantidade
+                itemExistente.quantidade += 1;
+            } else {
+                // Se não existe, adiciona com quantidade 1
+                carrinho.push({ nome: nome, preco: precoNumerico, quantidade: 1 });
+            }
+            
             atualizarInterfaceCarrinho();
-            
-            // Dá um feedback visual rápido
-            alert(`${nome} añadido al pedido!`);
         }
 
         function atualizarInterfaceCarrinho() {
             const divLista = document.getElementById('lista-carrinho');
             const divTotal = document.getElementById('total-carrinho');
             
-            if(carrinho.length === 0) return;
+            if(carrinho.length === 0) {
+                divLista.innerHTML = '<p style="color: #888; font-size: 1rem;">Aún no has añadido platos.</p>';
+                divTotal.innerHTML = 'Total: 0,00€';
+                return;
+            }
 
-            divLista.innerHTML = ''; // Limpa a mensagem vazia
+            divLista.innerHTML = '';
             let somaTotal = 0;
 
             carrinho.forEach(item => {
+                let precoTotalItem = item.preco * item.quantidade;
                 divLista.innerHTML += `
                     <div class="item-carrinho">
-                        <span>1x ${item.nome}</span>
-                        <span>${item.precoStr}</span>
+                        <span>
+                            <span class="qtd-badge">${item.quantidade}x</span>
+                            ${item.nome}
+                        </span>
+                        <strong>${precoTotalItem.toFixed(2).replace('.', ',')}€</strong>
                     </div>
                 `;
-                somaTotal += item.preco;
+                somaTotal += precoTotalItem;
             });
 
             divTotal.innerHTML = `Total: ${somaTotal.toFixed(2).replace('.', ',')}€`;
@@ -501,7 +447,7 @@
             e.preventDefault();
             
             if(carrinho.length === 0) {
-                alert("Por favor, añade al menos un plato al pedido antes de reservar.");
+                alert("¡Añade al menos un pedido antes de enviar a WhatsApp!");
                 return;
             }
 
@@ -510,14 +456,14 @@
             const hora = document.getElementById('res-hora').value;
             const dataFormatada = data.split('-').reverse().join('/');
 
-            // Monta a lista de produtos para o WhatsApp
-            let textoProdutos = carrinho.map(item => `▪️ 1x ${item.nome} (${item.precoStr})`).join('\n');
-            let soma = carrinho.reduce((acc, curr) => acc + curr.preco, 0).toFixed(2).replace('.', ',');
+            // Monta a lista de produtos com as quantidades
+            let textoProdutos = carrinho.map(item => `▪️ ${item.quantidade}x ${item.nome} (${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}€)`).join('\n');
+            let soma = carrinho.reduce((acc, curr) => acc + (curr.preco * curr.quantidade), 0).toFixed(2).replace('.', ',');
 
-            // Monta a mensagem final
-            const mensaje = `¡Hola Carmelo's! 🍔 Quisiera hacer una RESERVA CON PEDIDO:\n\n👤 *Nombre:* ${nome}\n📅 *Fecha:* ${dataFormatada}\n⏰ *Hora:* ${hora}\n\n🛒 *MI PEDIDO:*\n${textoProdutos}\n\n💰 *Total aproximado:* ${soma}€\n\n¿Tenéis disponibilidad de mesa para esta hora?`;
+            // Monta a mensagem final para o WhatsApp com o NOME DO CLIENTE
+            const mensaje = `¡Hola Carmelo's! 🍔 Quisiera hacer una RESERVA CON PEDIDO:\n\n👤 *Nombre del Cliente:* ${nome}\n📅 *Fecha:* ${dataFormatada}\n⏰ *Hora:* ${hora}\n\n🛒 *MI PEDIDO:*\n${textoProdutos}\n\n💰 *Total:* ${soma}€\n\n¿Tenéis disponibilidad de mesa para esta hora?`;
 
-            const numeroRestaurante = "34600000000"; // Mude para o número real
+            const numeroRestaurante = "34600000000"; // Mude para o número real de telefone do local
             const urlWhatsApp = `https://wa.me/${numeroRestaurante}?text=${encodeURIComponent(mensaje)}`;
             window.open(urlWhatsApp, '_blank');
         });
