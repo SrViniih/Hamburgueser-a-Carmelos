@@ -203,15 +203,28 @@
                     </section>
 
                     {/* Seção Ubicación / Localización */}
-                    <section id="ubicacion" style="padding-top: 40px; padding-bottom: 40px;">
-        <h2 class="section-title" style="text-align: center; border: none; padding: 0;">Nuestra Ubicación</h2>
-        <div style="max-width: 800px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 6px solid var(--madera-clara); margin-top: 30px;">
+                    <section id="contacto" className="max-w-7xl mx-auto px-4 py-12 w-full">
+    <h2 className="text-2xl font-bold text-center mb-8 uppercase tracking-wide text-gray-900">Dónde Estamos</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <div>
+            <h3 className="font-bold text-xl text-amber-900 mb-3">Hamburgueseria Carmelos</h3>
+            <p className="text-gray-600 mb-2"><i className="fa-solid fa-location-dot text-amber-600 mr-2"></i> Calle Principal 123, Local 4</p>
+            <p className="text-gray-600 mb-4"><i className="fa-solid fa-clock text-amber-600 mr-2"></i> Martes a Domingo: 13:00 - 23:30</p>
+            <p className="text-gray-600 text-sm">Ven a visitarnos o haz tu pedido online con recogida programada directo a nuestro WhatsApp.</p>
+        </div>
+        <div className="h-64 rounded-xl overflow-hidden shadow-inner w-full">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.3320666993135!2d-4.722351523439976!3d41.64039177126786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4712c8e097655f%3A0x5a8b35aa93c652e7!2sHamburgueser%C3%ADa%20Carmelo&#39;s!5e0!3m2!1ses!2ses!4v1715000000000!5m2!1ses!2ses" 
-                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.3320666993135!2d-4.722351523439976!3d41.64039177126786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4712c8e097655f%3A0x5a8b35aa93c652e7!2sHamburgueser%C3%ADa%20Carmelo%27s!5e0!3m2!1ses!2ses!4v1715000000000!5m2!1ses!2ses" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen="" 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
-    </section>
+    </div>
+</section>
 
                     {/* Footer */}
                     <footer className="bg-gray-900 text-white py-6 text-center text-sm">
